@@ -8,7 +8,7 @@
 | Phan Minh Hoàng  | SE171847 |
 | Trịnh Phan Đức Cường | SE140294 | 
 ## Resources
-[Requirements Documentaion]([https://www.google.com](https://docs.google.com/document/d/1GAuQov-tFaSFe5eZxrSGzpeA4wik6ILOjiO_Y8UsKdA/edit))
+[Requirements Documentaion](https://docs.google.com/document/d/1GAuQov-tFaSFe5eZxrSGzpeA4wik6ILOjiO_Y8UsKdA/edit)
 
 [Project Mangement](https://www.google.com)
  
