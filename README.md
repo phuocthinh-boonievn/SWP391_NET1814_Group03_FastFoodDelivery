@@ -12,4 +12,4 @@
 
 [Project Mangement](https://www.google.com)
  
-[Project Progress Report](https://drive.google.com/drive/u/1/folders/10UvliJJmGwo5WyG0Qmey-5qej9w8czhk)
+[Project Progress Report](https://docs.google.com/spreadsheets/d/1oEaJUSmVezTuXbCQ1gCtlvdh5VIrOuWQPcY0UBE3Y30/edit#gid=0)
