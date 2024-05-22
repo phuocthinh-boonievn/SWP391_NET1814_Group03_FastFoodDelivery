@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Data_Layer.Models
 {
-    public class Transaction
+    public class TransactionBill
     {
         public Guid TractionId { get; set; }
-        public Guid OrderId { get; set; }
+        public Guid? OrderId { get; set; }
+
+        public virtual Order Order { get; set; }
     }
 }

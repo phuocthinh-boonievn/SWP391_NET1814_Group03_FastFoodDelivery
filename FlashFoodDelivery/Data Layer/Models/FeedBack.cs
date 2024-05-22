@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Data_Layer.Models
 {
-    public class OrderDetail
+    public class FeedBack
     {
+        public Guid FeedBackId { get; set; }
+        public string? UserId { get; set; }
         public Guid OrderId { get; set; }
-        public Guid FoodId { get; set; }
-        public decimal? UnitPrice { get; set; }
-        public int Quantity { get; set; }
+        public string CommentMsg { get; set; }
 
-        public virtual MenuFoodItem MenuFoodItem { get; set; }
         public virtual Order Order { get; set; }
+        public virtual User User { get; set; }
     }
 }
