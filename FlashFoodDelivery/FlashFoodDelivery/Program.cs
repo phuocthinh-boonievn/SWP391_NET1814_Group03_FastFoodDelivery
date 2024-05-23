@@ -1,25 +1,41 @@
+using Business_Layer.AutoMapper;
+using Business_Layer.DataAccess;
+using Business_Layer.Repositories;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+//add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("CorsPolicy", build => build.AllowAnyMethod()
+        .AllowAnyHeader().AllowCredentials().SetIsOriginAllowed(hostname => true).Build());
+    });
+
+var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+string connectionstr = config.GetConnectionString("db");
+builder.Services.AddDbContext<FastFoodDeliveryDBContext>(option => option.UseSqlServer(connectionstr));
+builder.Services.AddAutoMapper(typeof(ApplicationMapper));
+
+// add services repository pattern
+//builder.services.addtransient<iproductrepository, productmanager>();
+//builder.services.addtransient<icategoryrepository, categorymanager>();
+builder.Services.AddTransient<IMenuFoodItemRepository, MenuItemFoodRepository>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
+// configure the http request pipeline.
 
 app.MapControllers();
+app.MapGet("/", () => "hello world");
+app.UseSwagger();
+app.UseSwaggerUI();
+app.UseCors(builder =>
+{
+    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+});
 
 app.Run();
