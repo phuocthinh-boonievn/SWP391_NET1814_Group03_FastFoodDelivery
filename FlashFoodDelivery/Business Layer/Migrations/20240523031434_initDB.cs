@@ -216,9 +216,9 @@ namespace Business_Layer.Migrations
                     OrderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MemberId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     ShipperId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValue: new DateTime(2024, 5, 22, 15, 40, 6, 448, DateTimeKind.Local).AddTicks(128)),
-                    ShippedDate = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValue: new DateTime(2024, 5, 27, 15, 40, 6, 448, DateTimeKind.Local).AddTicks(580)),
-                    RequiredDate = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValue: new DateTime(2024, 5, 25, 15, 40, 6, 448, DateTimeKind.Local).AddTicks(374)),
+                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValue: new DateTime(2024, 5, 23, 10, 14, 34, 561, DateTimeKind.Local).AddTicks(7049)),
+                    ShippedDate = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValue: new DateTime(2024, 5, 28, 10, 14, 34, 561, DateTimeKind.Local).AddTicks(7594)),
+                    RequiredDate = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValue: new DateTime(2024, 5, 26, 10, 14, 34, 561, DateTimeKind.Local).AddTicks(7395)),
                     Address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     TotalPrice = table.Column<decimal>(type: "money", nullable: true),
                     StatusOrder = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true)
