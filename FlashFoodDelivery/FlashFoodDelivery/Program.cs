@@ -21,9 +21,9 @@ builder.Services.AddDbContext<FastFoodDeliveryDBContext>(option => option.UseSql
 builder.Services.AddAutoMapper(typeof(ApplicationMapper));
 
 // add services repository pattern
-//builder.services.addtransient<iproductrepository, productmanager>();
-//builder.services.addtransient<icategoryrepository, categorymanager>();
 builder.Services.AddTransient<IMenuFoodItemRepository, MenuItemFoodRepository>();
+builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
+
 
 var app = builder.Build();
 

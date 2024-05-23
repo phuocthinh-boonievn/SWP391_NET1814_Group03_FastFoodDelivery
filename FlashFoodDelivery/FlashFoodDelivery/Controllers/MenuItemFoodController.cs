@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Business_Layer.DataAccess;
 using Business_Layer.Repositories;
+using Data_Layer.ResourceModel.Common;
 using Data_Layer.ResourceModel.ViewModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,13 +21,20 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllMenuFoodItem()
+        public async Task<APIResponseModel> GetAllMenuFoodItem()
         {
             try
             {
                 var result = await _menuFoodItemRepository.GetMenuFoodItem();
-                return Ok(result);
-            }catch (Exception ex)
+                return new APIResponseModel()
+                {
+                    code = 200,
+                    message = "Get successful",
+                    IsSuccess = true,
+                    Data = result,
+                };
+            }
+            catch (Exception ex)
             {
                 throw;
             }
