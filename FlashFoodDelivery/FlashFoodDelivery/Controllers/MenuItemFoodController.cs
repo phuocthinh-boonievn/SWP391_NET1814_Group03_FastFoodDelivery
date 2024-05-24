@@ -3,6 +3,7 @@ using Business_Layer.DataAccess;
 using Business_Layer.Repositories;
 using Data_Layer.ResourceModel.Common;
 using Data_Layer.ResourceModel.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +22,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = UserRole.Admin)]
         public async Task<APIResponseModel> GetAllMenuFoodItem()
         {
             try
