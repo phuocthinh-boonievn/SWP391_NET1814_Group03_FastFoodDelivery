@@ -8,4 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Business_Layer
-build_property.ProjectDir = D:\Basic Cross-Platform Application Program\Project CShape\FastFoodDeliveryAPI\FlashFoodDelivery\Business Layer\
+build_property.ProjectDir = E:\school\visual studio\SWP391_NET1814_Group03_FastFoodDelivery\FlashFoodDelivery\Business Layer\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
