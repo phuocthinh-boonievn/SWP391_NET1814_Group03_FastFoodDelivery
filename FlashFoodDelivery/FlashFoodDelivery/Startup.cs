@@ -1,6 +1,7 @@
 ﻿using Business_Layer.AutoMapper;
 using Business_Layer.DataAccess;
 using Business_Layer.Repositories;
+using Business_Layer.Repositories.Interface;
 using Data_Layer.Models;
 using Data_Layer.ResourceModel.ViewModel.User;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -55,6 +56,7 @@ namespace API
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IDataService, RoleDataRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IShipperRepository, ShipperRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
