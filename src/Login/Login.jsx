@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Login.css'; // Đảm bảo tạo file CSS để định kiểu
+import './Login.css'; 
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -7,7 +7,7 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Xử lý logic đăng nhập tại đây
+        
         console.log('Email:', email);
         console.log('Password:', password);
     };
@@ -36,7 +36,7 @@ const Login = () => {
                         required
                     />
                 </div>
-                <button type="submit" className="login-button">Login Now</button>
+                <button type="submit" className="login-button">Login</button>
             </form>
         </div>
     );

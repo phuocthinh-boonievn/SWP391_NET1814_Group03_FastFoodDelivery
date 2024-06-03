@@ -8,7 +8,6 @@ import ShoppingCart from './ShoppingCart/ShoppingCart';
 
 import './App.css';
 
-
 function App() {
     return (
 
