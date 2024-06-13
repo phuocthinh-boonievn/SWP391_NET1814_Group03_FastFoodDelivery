@@ -6,8 +6,8 @@ import ShoppingCartSummary from './ShoppingCartSummary';
 import './ShoppingCart.css';
 
 const initialItems = [
-    { id: 1, name: 'Chicken Cheese', description: 'Deliciously Cheesy Chicken Delight!', price: 18, quantity: 1, image: 'cheese.jpg' },
-    { id: 2, name: 'Chicken Mix', description: 'Mix It Up with Flavorful Chicken Bliss!', price: 23, quantity: 1, image: 'chickenmix.jpg' },
+    { id: 1, name: 'Chicken Cheese', description: 'Deliciously Cheese Chicken Delight!', price: 18, quantity: 1, image: 'cheese.jpg' },
+    { id: 2, name: 'Chicken Mix', description: 'Mix chicken Cheese with Spicy !', price: 23, quantity: 1, image: 'chickenmix.jpg' },
     { id: 3, name: 'Burger Chicken', description: 'Clucking Good Chicken Burgers!', price: 15, quantity: 1, image: 'ga.jpg' },
 ];
 

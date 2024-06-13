@@ -8,13 +8,13 @@ const ShoppingCartSummary = ({ items, totalPrice, shipping, onCheckout }) => {
             <h3>Summary</h3>
             <div>
                 <p>ITEMS {items.length}</p>
-                <p>€ {totalPrice}</p>
+                <p>$ {totalPrice}</p>
             </div>
             <div>
                 <label>SHIPPING</label>
                 <select>
-                    <option value="5">Standard-Delivery - €5.00</option>
-                    <option value="10">Express-Delivery - €10.00</option>
+                    <option value="5">Standard-Delivery - $5.00</option>
+                    <option value="10">Express-Delivery - $10.00</option>
                 </select>
             </div>
             <div>
@@ -23,7 +23,7 @@ const ShoppingCartSummary = ({ items, totalPrice, shipping, onCheckout }) => {
             </div>
             <div>
                 <p>TOTAL PRICE</p>
-                <p>€ {totalPrice + shipping}</p>
+                <p>$ {totalPrice + shipping}</p>
             </div>
             <button onClick={onCheckout}>CHECKOUT</button>
         </div>

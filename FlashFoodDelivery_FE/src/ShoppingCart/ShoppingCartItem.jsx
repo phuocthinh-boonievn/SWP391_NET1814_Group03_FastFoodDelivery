@@ -18,7 +18,7 @@ const ShoppingCartItem = ({ item, onAdd, onRemove, onDelete }) => {
                 <button onClick={() => onAdd(item.id)}>+</button>
             </div>
             <div className="item-price">
-                € {item.price * item.quantity}
+                $ {item.price * item.quantity}
             </div>
             <button onClick={() => onDelete(item.id)} className="delete-button">x</button>
         </div>
