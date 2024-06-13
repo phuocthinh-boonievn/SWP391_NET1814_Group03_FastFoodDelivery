@@ -3,6 +3,7 @@ import Layout from "./components/layout";
 import FoodItemManagement from "./pages/fastfood-magegement";
 import HomePage from "./pages/home";
 import Login from "./pages/login";
+import AdminAccountManagement from "./pages/accountuser-management/Index";
 
 function App() {
   const router = createBrowserRouter([
@@ -17,6 +18,10 @@ function App() {
         {
           path: "/fastfood-magegement",
           element: <FoodItemManagement />,
+        },
+        {
+          path: "/accountuser-management",
+          element: <AdminAccountManagement />,
         },
         {
           path: "/login",
