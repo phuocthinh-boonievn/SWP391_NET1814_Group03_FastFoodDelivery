@@ -1,6 +1,6 @@
 import "./index.scss";
 import { Link } from "react-router-dom";
-import { SearchOutlined, UserOutlined, CloseOutlined } from "@ant-design/icons";
+import { SearchOutlined, UserOutlined, CloseOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { Input } from "antd";
 
@@ -37,7 +37,11 @@ function Header() {
           <li onClick={() => setIsShowSearch(true)}>
             <SearchOutlined />
           </li>
-    
+          <li >
+            <Link to="/shoppingcart">
+            <ShoppingCartOutlined />
+            </Link>          
+          </li>
           <li>
             <Link to="/login">
               <UserOutlined />

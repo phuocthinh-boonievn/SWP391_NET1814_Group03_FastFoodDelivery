@@ -4,6 +4,7 @@ import FoodItemManagement from "./pages/fastfood-magegement";
 import HomePage from "./pages/home";
 import Login from "./pages/login";
 import AdminAccountManagement from "./pages/accountuser-management/Index";
+import ShoppingCart from "./pages/shoppingcart/ShoppingCart";
 
 function App() {
   const router = createBrowserRouter([
@@ -26,6 +27,10 @@ function App() {
         {
           path: "/login",
           element: <Login />,
+        },
+        {
+          path: "/shoppingcart",
+          element: <ShoppingCart />,
         },
       ],
     },
