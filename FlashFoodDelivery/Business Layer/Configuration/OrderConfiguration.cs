@@ -15,14 +15,14 @@ namespace Business_Layer.Configuration
         {
             builder.ToTable("Order");
             builder.HasKey(x => x.OrderId);
+            builder.Property(x => x.OrderId).ValueGeneratedOnAdd();
             builder.Property(x => x.OrderDate).HasDefaultValue(DateTime.Now);
-            builder.Property(x => x.RequiredDate).HasDefaultValue(DateTime.Now.AddDays(3));
-            builder.Property(x => x.ShippedDate).HasDefaultValue(DateTime.Now.AddDays(5));
+            builder.Property(x => x.RequiredDate);
+            builder.Property(x => x.ShippedDate);
             builder.Property(x => x.Address).HasMaxLength(100);
             builder.Property(x => x.TotalPrice).HasColumnType("money");
-            builder.Property(x => x.StatusOrder).HasMaxLength(50);
+            builder.Property(x => x.OrderStatusId).HasMaxLength(50);
             builder.HasOne(x => x.User).WithMany(x => x.Orders).HasForeignKey(x => x.MemberId);
-            builder.HasOne(x => x.Shipper).WithMany(x => x.Orders).HasForeignKey(x => x.ShipperId);
         }
     }
 }

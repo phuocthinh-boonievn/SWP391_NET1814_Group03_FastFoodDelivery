@@ -19,14 +19,14 @@ namespace Business_Layer.Repositories
 
 		public async Task<bool> AddShipper(ShipperVM shipperVM)
 		{
-			var shipper = _mapper.Map<Shipper>(shipperVM);
+			var shipper = _mapper.Map<OrderStatus>(shipperVM);
 			_context.Shippers.Add(shipper);
 			return await _context.SaveChangesAsync() > 0;
 		}
 
 		public async Task<bool> DeleteShipperById(Guid id)
 		{
-			var shipper = _mapper.Map<Shipper>(GetShipperById(id));
+			var shipper = _mapper.Map<OrderStatus>(GetShipperById(id));
 			_context.Shippers.Remove(shipper);
 			return await _context.SaveChangesAsync() > 0;
 		}
@@ -40,21 +40,21 @@ namespace Business_Layer.Repositories
 
 		public async Task<ShipperVM> GetShipperById(Guid id)
 		{
-			var shipper = _context.Shippers.FirstOrDefaultAsync(s => s.ShipperId.Equals(id));
+			var shipper = _context.Shippers.FirstOrDefaultAsync(s => s.UserId.Equals(id));
 			var result = _mapper.Map<ShipperVM>(shipper);
 			return result;
 		}
 
 		public async Task<ShipperVM> GetShipperByUserId(string userId)
 		{
-			var shipper = _context.Shippers.FirstOrDefaultAsync(s => s.ShipperId.Equals(userId));
+			var shipper = _context.Shippers.FirstOrDefaultAsync(s => s.UserId.Equals(userId));
 			var result = _mapper.Map<ShipperVM>(shipper);
 			return result;
 		}
 
 		public async Task<bool> UpdateShipper(ShipperVM shipperVM)
 		{
-			var shipper = _mapper.Map<Shipper>(shipperVM);
+			var shipper = _mapper.Map<OrderStatus>(shipperVM);
 			_context.Shippers.Update(shipper);
 			return await _context.SaveChangesAsync() > 0;
 		}

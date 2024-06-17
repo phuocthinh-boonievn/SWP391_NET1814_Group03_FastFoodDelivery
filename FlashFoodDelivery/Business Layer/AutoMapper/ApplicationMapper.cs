@@ -16,7 +16,7 @@ namespace Business_Layer.AutoMapper
             CreateMap<MenuFoodItem, MenuFoodItemVM>().ReverseMap();
             CreateMap<Category, CategoryVM>().ReverseMap();
             CreateMap<Order, OrderVM>().ReverseMap();
-            CreateMap<Shipper, ShipperVM>().ReverseMap();
+            CreateMap<OrderStatus, ShipperVM>().ReverseMap();
         }
     }
 }

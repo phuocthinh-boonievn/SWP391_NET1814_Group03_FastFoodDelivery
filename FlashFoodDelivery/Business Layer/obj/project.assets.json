@@ -1377,7 +1377,7 @@
           }
         }
       },
-      "Data Layer/1.0.0": {
+      "DataLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
@@ -1386,10 +1386,10 @@
           "Microsoft.Extensions.Configuration.Json": "7.0.0"
         },
         "compile": {
-          "bin/placeholder/Data Layer.dll": {}
+          "bin/placeholder/DataLayer.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Data Layer.dll": {}
+          "bin/placeholder/DataLayer.dll": {}
         }
       }
     }
@@ -3271,16 +3271,16 @@
         "version.txt"
       ]
     },
-    "Data Layer/1.0.0": {
+    "DataLayer/1.0.0": {
       "type": "project",
-      "path": "../Data Layer/Data Layer.csproj",
-      "msbuildProject": "../Data Layer/Data Layer.csproj"
+      "path": "../Data Layer/DataLayer.csproj",
+      "msbuildProject": "../Data Layer/DataLayer.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
-      "Data Layer >= 1.0.0",
+      "DataLayer >= 1.0.0",
       "Microsoft.AspNetCore.Identity >= 2.2.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.22"
     ]
@@ -3292,9 +3292,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Business Layer.csproj",
-      "projectName": "Business Layer",
-      "projectPath": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Business Layer.csproj",
+      "projectUniqueName": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\BusinessLayer.csproj",
+      "projectName": "BusinessLayer",
+      "projectPath": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\BusinessLayer.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
       "outputPath": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\obj\\",
       "projectStyle": "PackageReference",
@@ -3317,8 +3317,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Data Layer\\Data Layer.csproj": {
-              "projectPath": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Data Layer\\Data Layer.csproj"
+            "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Data Layer\\DataLayer.csproj": {
+              "projectPath": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Data Layer\\DataLayer.csproj"
             }
           }
         }

@@ -1528,23 +1528,23 @@
           }
         }
       },
-      "Business Layer/1.0.0": {
+      "BusinessLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
-          "Data Layer": "1.0.0",
+          "DataLayer": "1.0.0",
           "Microsoft.AspNetCore.Identity": "2.2.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.22"
         },
         "compile": {
-          "bin/placeholder/Business Layer.dll": {}
+          "bin/placeholder/BusinessLayer.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Business Layer.dll": {}
+          "bin/placeholder/BusinessLayer.dll": {}
         }
       },
-      "Data Layer/1.0.0": {
+      "DataLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
@@ -1553,10 +1553,10 @@
           "Microsoft.Extensions.Configuration.Json": "7.0.0"
         },
         "compile": {
-          "bin/placeholder/Data Layer.dll": {}
+          "bin/placeholder/DataLayer.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Data Layer.dll": {}
+          "bin/placeholder/DataLayer.dll": {}
         }
       }
     }
@@ -3887,21 +3887,21 @@
         "version.txt"
       ]
     },
-    "Business Layer/1.0.0": {
+    "BusinessLayer/1.0.0": {
       "type": "project",
-      "path": "../Business Layer/Business Layer.csproj",
-      "msbuildProject": "../Business Layer/Business Layer.csproj"
+      "path": "../Business Layer/BusinessLayer.csproj",
+      "msbuildProject": "../Business Layer/BusinessLayer.csproj"
     },
-    "Data Layer/1.0.0": {
+    "DataLayer/1.0.0": {
       "type": "project",
-      "path": "../Data Layer/Data Layer.csproj",
-      "msbuildProject": "../Data Layer/Data Layer.csproj"
+      "path": "../Data Layer/DataLayer.csproj",
+      "msbuildProject": "../Data Layer/DataLayer.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "Business Layer >= 1.0.0",
-      "Data Layer >= 1.0.0",
+      "BusinessLayer >= 1.0.0",
+      "DataLayer >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.22",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.22",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.22",
@@ -3946,11 +3946,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Business Layer.csproj": {
-              "projectPath": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Business Layer.csproj"
+            "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\BusinessLayer.csproj": {
+              "projectPath": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\BusinessLayer.csproj"
             },
-            "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Data Layer\\Data Layer.csproj": {
-              "projectPath": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Data Layer\\Data Layer.csproj"
+            "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Data Layer\\DataLayer.csproj": {
+              "projectPath": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Data Layer\\DataLayer.csproj"
             }
           }
         }

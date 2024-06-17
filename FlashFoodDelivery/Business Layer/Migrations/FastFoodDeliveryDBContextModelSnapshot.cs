@@ -114,25 +114,20 @@ namespace Business_Layer.Migrations
                     b.Property<DateTime?>("OrderDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 5, 22, 15, 40, 6, 448, DateTimeKind.Local).AddTicks(128));
+                        .HasDefaultValue(new DateTime(2024, 6, 17, 10, 57, 12, 591, DateTimeKind.Local).AddTicks(513));
 
-                    b.Property<DateTime?>("RequiredDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 5, 25, 15, 40, 6, 448, DateTimeKind.Local).AddTicks(374));
-
-                    b.Property<DateTime?>("ShippedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 5, 27, 15, 40, 6, 448, DateTimeKind.Local).AddTicks(580));
-
-                    b.Property<Guid?>("ShipperId")
-                        .IsRequired()
+                    b.Property<Guid?>("OrderStatusId")
+                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("StatusOrder")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<DateTime?>("RequiredDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ShippedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("ShipperId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal?>("TotalPrice")
                         .HasColumnType("money");
@@ -140,8 +135,6 @@ namespace Business_Layer.Migrations
                     b.HasKey("OrderId");
 
                     b.HasIndex("MemberId");
-
-                    b.HasIndex("ShipperId");
 
                     b.ToTable("Order", (string)null);
                 });
@@ -167,25 +160,32 @@ namespace Business_Layer.Migrations
                     b.ToTable("OrderDetail", (string)null);
                 });
 
-            modelBuilder.Entity("Data_Layer.Models.Shipper", b =>
+            modelBuilder.Entity("Data_Layer.Models.OrderStatus", b =>
                 {
-                    b.Property<Guid>("ShipperId")
+                    b.Property<Guid>("OrderStatusId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("ShipperStatus")
+                    b.Property<Guid?>("OrderId")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("OrderStatusName")
                         .HasMaxLength(128)
                         .HasColumnType("nvarchar(128)");
 
-                    b.Property<string>("userId")
+                    b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("ShipperId");
+                    b.HasKey("OrderStatusId");
 
-                    b.HasIndex("userId");
+                    b.HasIndex("OrderId");
 
-                    b.ToTable("Shipper", (string)null);
+                    b.HasIndex("UserId");
+
+                    b.ToTable("OrderStatus", (string)null);
                 });
 
             modelBuilder.Entity("Data_Layer.Models.TransactionBill", b =>
@@ -214,7 +214,6 @@ namespace Business_Layer.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -445,14 +444,6 @@ namespace Business_Layer.Migrations
                         .WithMany("Orders")
                         .HasForeignKey("MemberId");
 
-                    b.HasOne("Data_Layer.Models.Shipper", "Shipper")
-                        .WithMany("Orders")
-                        .HasForeignKey("ShipperId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Shipper");
-
                     b.Navigation("User");
                 });
 
@@ -475,13 +466,21 @@ namespace Business_Layer.Migrations
                     b.Navigation("Order");
                 });
 
-            modelBuilder.Entity("Data_Layer.Models.Shipper", b =>
+            modelBuilder.Entity("Data_Layer.Models.OrderStatus", b =>
                 {
-                    b.HasOne("Data_Layer.Models.User", "User")
-                        .WithMany("Shippers")
-                        .HasForeignKey("userId")
+                    b.HasOne("Data_Layer.Models.Order", "Order")
+                        .WithMany("OrderStatuses")
+                        .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Data_Layer.Models.User", "User")
+                        .WithMany("OrderStatuses")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
 
                     b.Navigation("User");
                 });
@@ -564,21 +563,18 @@ namespace Business_Layer.Migrations
 
                     b.Navigation("OrderDetails");
 
-                    b.Navigation("TransactionBills");
-                });
+                    b.Navigation("OrderStatuses");
 
-            modelBuilder.Entity("Data_Layer.Models.Shipper", b =>
-                {
-                    b.Navigation("Orders");
+                    b.Navigation("TransactionBills");
                 });
 
             modelBuilder.Entity("Data_Layer.Models.User", b =>
                 {
                     b.Navigation("FeedBacks");
 
-                    b.Navigation("Orders");
+                    b.Navigation("OrderStatuses");
 
-                    b.Navigation("Shippers");
+                    b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618
         }
