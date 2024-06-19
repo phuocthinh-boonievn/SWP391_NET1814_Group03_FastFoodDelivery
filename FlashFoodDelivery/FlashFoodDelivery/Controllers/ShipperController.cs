@@ -43,50 +43,6 @@ namespace API.Controllers
 			}
 		}
 
-		// GET api/<ShipperController>/5
-		[HttpGet("GetShipperById")]
-		//[Authorize(Roles = UserRole.Admin)]
-		public async Task<APIResponseModel> GetShipperById(Guid id)
-		{
-			try
-			{
-				if (!ModelState.IsValid)
-				{
-					var errors = ModelState.Values.SelectMany(v => v.Errors)
-								  .Select(e => e.ErrorMessage).ToList();
-					return new APIResponseModel
-					{
-						code = 400,
-						Data = errors,
-						IsSuccess = false,
-						message = string.Join(";", errors)
-					};
-
-
-				}
-
-				var result = await _shipperRepository.GetShipperById(id);
-				return new APIResponseModel()
-				{
-					code = 200,
-					message = "Get successful",
-					IsSuccess = true,
-					Data = result,
-				};
-
-			}
-			catch (Exception ex)
-			{
-				return new APIResponseModel()
-				{
-					code = StatusCodes.Status400BadRequest,
-					message = ex.Message,
-					Data = ex,
-					IsSuccess = false
-				};
-			}
-		}
-
 		// POST api/<ShipperController>
 		[HttpGet("GetShipperByUserId")]
 		//[Authorize(Roles = UserRole.Admin)]
@@ -131,54 +87,5 @@ namespace API.Controllers
 			}
 		}
 
-		// PUT api/<ShipperController>/5
-		[HttpGet("AddShipper")]
-		public async Task<APIResponseModel> AddShipper([FromBody] ShipperVM model)
-		{
-			try
-			{
-				if (!ModelState.IsValid)
-				{
-					var errors = ModelState.Values.SelectMany(v => v.Errors)
-								  .Select(e => e.ErrorMessage).ToList();
-					return new APIResponseModel
-					{
-						code = 400,
-						Data = errors,
-						IsSuccess = false,
-						message = string.Join(";", errors)
-					};
-
-
-				}
-
-				var result = await _shipperRepository.AddShipper(model);
-				return new APIResponseModel()
-				{
-					code = 200,
-					message = "Get successful",
-					IsSuccess = true,
-					Data = result,
-				};
-
-			}
-			catch (Exception ex)
-			{
-				return new APIResponseModel()
-				{
-					code = StatusCodes.Status400BadRequest,
-					message = ex.Message,
-					Data = ex,
-					IsSuccess = false
-				};
-			}
-		}
-
-		// DELETE api/<ShipperController>/5
-		[HttpDelete("DeleteShipper")]
-		//[Authorize(Roles = UserRole.Admin)]
-		public void Delete(int id)
-		{
-		}
 	}
 }

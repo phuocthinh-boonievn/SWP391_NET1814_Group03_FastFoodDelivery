@@ -21,9 +21,9 @@ namespace Business_Layer.DataAccess
         public DbSet<Category> Categories { get; set; }
         public DbSet<Order> Orders { get; set;}
         public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<OrderStatus> OrderStatuses { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<TransactionBill> Transactions { get; set; }
-        public DbSet<OrderStatus> Shippers { get; set; }
         public DbSet<FeedBack> FeedBacks { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

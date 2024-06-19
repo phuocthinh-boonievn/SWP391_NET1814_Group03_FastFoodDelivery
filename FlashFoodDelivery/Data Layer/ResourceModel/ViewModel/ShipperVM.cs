@@ -9,6 +9,6 @@ namespace Data_Layer.ResourceModel.ViewModel
 	public class ShipperVM
 	{
 		public string? userId { get; set; }
-		public string? ShipperStatus { get; set; }
+		public string? orderStatusId { get; set; }
 	}
 }

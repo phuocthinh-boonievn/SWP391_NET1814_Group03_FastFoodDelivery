@@ -3,6 +3,7 @@ using Business_Layer.DataAccess;
 using Business_Layer.Repositories.Interface;
 using Data_Layer.Models;
 using Data_Layer.ResourceModel.ViewModel;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -16,47 +17,30 @@ namespace Business_Layer.Repositories
 	{
 		private readonly FastFoodDeliveryDBContext _context;
 		private readonly IMapper _mapper;
+		private UserManager<User> _userManager;
+		private readonly RoleManager<IdentityRole> _roleManager;
 
-		public async Task<bool> AddShipper(ShipperVM shipperVM)
+		public ShipperRepository(FastFoodDeliveryDBContext context, IMapper mapper, UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
 		{
-			var shipper = _mapper.Map<OrderStatus>(shipperVM);
-			_context.Shippers.Add(shipper);
-			return await _context.SaveChangesAsync() > 0;
-		}
-
-		public async Task<bool> DeleteShipperById(Guid id)
-		{
-			var shipper = _mapper.Map<OrderStatus>(GetShipperById(id));
-			_context.Shippers.Remove(shipper);
-			return await _context.SaveChangesAsync() > 0;
+			_context = context;
+			_mapper = mapper;
+			_userManager = userManager;
+			_roleManager = roleManager;
 		}
 
 		public async Task<List<ShipperVM>> GetAllShipper()
 		{
-			var shippers = _context.Shippers.ToListAsync();
+			var shippers = await _userManager.GetUsersInRoleAsync("Shipper");
 			var result = _mapper.Map<List<ShipperVM>>(shippers);
-			return result;
-		}
-
-		public async Task<ShipperVM> GetShipperById(Guid id)
-		{
-			var shipper = _context.Shippers.FirstOrDefaultAsync(s => s.UserId.Equals(id));
-			var result = _mapper.Map<ShipperVM>(shipper);
 			return result;
 		}
 
 		public async Task<ShipperVM> GetShipperByUserId(string userId)
 		{
-			var shipper = _context.Shippers.FirstOrDefaultAsync(s => s.UserId.Equals(userId));
+			var shipper = _userManager.FindByIdAsync(userId);
 			var result = _mapper.Map<ShipperVM>(shipper);
 			return result;
 		}
 
-		public async Task<bool> UpdateShipper(ShipperVM shipperVM)
-		{
-			var shipper = _mapper.Map<OrderStatus>(shipperVM);
-			_context.Shippers.Update(shipper);
-			return await _context.SaveChangesAsync() > 0;
-		}
 	}
 }
