@@ -1,4 +1,5 @@
-﻿using Data_Layer.ResourceModel.ViewModel;
+﻿using Data_Layer.Models;
+using Data_Layer.ResourceModel.ViewModel;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,6 @@ namespace Business_Layer.Repositories.Interface
 	public interface IShipperRepository
 	{
 		Task<List<ShipperVM>> GetAllShipper();
-		Task<ShipperVM> GetShipperByUserId(string userId);
+		Task<User> GetShipperByUserId(string userId);
 	}
 }

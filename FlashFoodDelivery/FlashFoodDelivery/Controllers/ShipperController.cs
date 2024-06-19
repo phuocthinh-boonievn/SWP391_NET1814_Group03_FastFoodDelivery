@@ -1,9 +1,6 @@
-﻿using Business_Layer.Repositories;
-using Business_Layer.Repositories.Interface;
+﻿using Business_Layer.Repositories.Interface;
+using Data_Layer.Models;
 using Data_Layer.ResourceModel.Common;
-using Data_Layer.ResourceModel.ViewModel;
-using Data_Layer.ResourceModel.ViewModel.User;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860

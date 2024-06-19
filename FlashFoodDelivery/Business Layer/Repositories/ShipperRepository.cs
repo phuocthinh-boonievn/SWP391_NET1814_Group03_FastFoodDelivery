@@ -31,14 +31,27 @@ namespace Business_Layer.Repositories
 		public async Task<List<ShipperVM>> GetAllShipper()
 		{
 			var shippers = await _userManager.GetUsersInRoleAsync("Shipper");
-			var result = _mapper.Map<List<ShipperVM>>(shippers);
+			List<ShipperVM> shippersList = new List<ShipperVM>();
+			foreach (var shipperVM in shippers)
+			{
+				var shipper = new ShipperVM();
+				var order = _context.Orders.FirstOrDefault(x => x.ShipperId.Equals(shipperVM.Id));
+				shipper.userId = shipperVM.Id;
+				if (order != null)
+				{
+					shipper.orderStatusId = order.OrderStatusId;
+				}
+				else shipper.orderStatusId = null;
+				shippersList.Add(shipper);
+			}
+			var result = _mapper.Map<List<ShipperVM>>(shippersList);
 			return result;
 		}
 
-		public async Task<ShipperVM> GetShipperByUserId(string userId)
+		public async Task<User> GetShipperByUserId(string userId)
 		{
-			var shipper = _userManager.FindByIdAsync(userId);
-			var result = _mapper.Map<ShipperVM>(shipper);
+			var shipper = await _userManager.FindByIdAsync(userId);
+			var result = _mapper.Map<User>(shipper);
 			return result;
 		}
 
