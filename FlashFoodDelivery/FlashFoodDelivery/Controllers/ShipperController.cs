@@ -41,9 +41,9 @@ namespace API.Controllers
 		}
 
 		// POST api/<ShipperController>
-		[HttpGet("GetShipperByUserId")]
+		[HttpGet("GetOrderStatusByShipperId")]
 		//[Authorize(Roles = UserRole.Admin)]
-		public async Task<APIResponseModel> GetShipperByUserId(string userId)
+		public async Task<APIResponseModel> GetOrderStatusByShipperId(string userId)
 		{
 			try
 			{
@@ -62,14 +62,8 @@ namespace API.Controllers
 
 				}
 
-				var result = await _shipperRepository.GetShipperByUserId(userId);
-				return new APIResponseModel()
-				{
-					code = 200,
-					message = "Get successful",
-					IsSuccess = true,
-					Data = result,
-				};
+				var result = _shipperRepository.GetOrderStatusByShipperId(userId);
+				return await result;
 
 			}
 			catch (Exception ex)

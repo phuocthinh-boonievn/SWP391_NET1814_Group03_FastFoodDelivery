@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Business_Layer.Migrations
 {
     [DbContext(typeof(FastFoodDeliveryDBContext))]
-    [Migration("20240617035712_FFDDB")]
-    partial class FFDDB
+    [Migration("20240620024010_FastFoodDeliveryDB")]
+    partial class FastFoodDeliveryDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -116,7 +116,7 @@ namespace Business_Layer.Migrations
                     b.Property<DateTime?>("OrderDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 6, 17, 10, 57, 12, 591, DateTimeKind.Local).AddTicks(513));
+                        .HasDefaultValue(new DateTime(2024, 6, 20, 9, 40, 9, 900, DateTimeKind.Local).AddTicks(4920));
 
                     b.Property<Guid?>("OrderStatusId")
                         .HasMaxLength(50)

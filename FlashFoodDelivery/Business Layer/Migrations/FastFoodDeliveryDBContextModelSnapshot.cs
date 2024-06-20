@@ -114,7 +114,7 @@ namespace Business_Layer.Migrations
                     b.Property<DateTime?>("OrderDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 6, 17, 10, 57, 12, 591, DateTimeKind.Local).AddTicks(513));
+                        .HasDefaultValue(new DateTime(2024, 6, 20, 9, 40, 9, 900, DateTimeKind.Local).AddTicks(4920));
 
                     b.Property<Guid?>("OrderStatusId")
                         .HasMaxLength(50)

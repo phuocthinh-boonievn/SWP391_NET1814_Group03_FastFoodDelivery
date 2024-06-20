@@ -2,7 +2,9 @@
 using Business_Layer.DataAccess;
 using Business_Layer.Repositories.Interface;
 using Data_Layer.Models;
+using Data_Layer.ResourceModel.Common;
 using Data_Layer.ResourceModel.ViewModel;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -31,28 +33,54 @@ namespace Business_Layer.Repositories
 		public async Task<List<ShipperVM>> GetAllShipper()
 		{
 			var shippers = await _userManager.GetUsersInRoleAsync("Shipper");
-			List<ShipperVM> shippersList = new List<ShipperVM>();
-			foreach (var shipperVM in shippers)
+			var shipperList = new List<ShipperVM>();
+			foreach (var shipper in shippers)
 			{
-				var shipper = new ShipperVM();
-				var order = _context.Orders.FirstOrDefault(x => x.ShipperId.Equals(shipperVM.Id));
-				shipper.userId = shipperVM.Id;
-				if (order != null)
+				var shipperVM = new ShipperVM();
+				var orders = _context.Orders.Where(x => x.ShipperId.Equals(shipper.Id)).ToList();
+				shipperVM.userId = shipper.Id;
+				if (orders != null)
 				{
-					shipper.orderStatusId = order.OrderStatusId;
+					foreach(var order in orders)
+					{
+						shipperVM.orderStatusId.Add(order.OrderId);
+					}
 				}
-				else shipper.orderStatusId = null;
-				shippersList.Add(shipper);
+				else shipperVM.orderStatusId = null;
+				shipperList.Add(shipperVM);
 			}
-			var result = _mapper.Map<List<ShipperVM>>(shippersList);
+			var result = _mapper.Map<List<ShipperVM>>(shipperList);
 			return result;
 		}
 
-		public async Task<User> GetShipperByUserId(string userId)
+		public async Task<APIResponseModel> GetOrderStatusByShipperId(string userId)
 		{
-			var shipper = await _userManager.FindByIdAsync(userId);
-			var result = _mapper.Map<User>(shipper);
-			return result;
+			var shippers = await _userManager.GetUsersInRoleAsync("Shipper");
+			var user = await _userManager.FindByIdAsync(userId);
+			if (!shippers.Contains(user))
+			{
+				return new APIResponseModel()
+				{
+					code = 200,
+					message = "This user is not shipper",
+					IsSuccess = false,
+				};
+			}
+			var orderStatuses = _context.OrderStatuses.Where(o => o.UserId.Equals(userId)).ToList();
+			if (orderStatuses.Count() == 0) return new APIResponseModel()
+			{
+				code = 200,
+				message = "Shipper doesn't have any order",
+				IsSuccess = false,
+			};
+			var result = _mapper.Map<List<OrderStatus>>(orderStatuses);
+			return new APIResponseModel()
+			{
+				code = 200,
+				message = "Get successful",
+				IsSuccess = true,
+				Data = result
+			};
 		}
 
 	}

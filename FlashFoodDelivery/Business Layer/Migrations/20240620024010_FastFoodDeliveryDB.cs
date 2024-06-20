@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Business_Layer.Migrations
 {
-    public partial class FFDDB : Migration
+    public partial class FastFoodDeliveryDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -175,7 +175,7 @@ namespace Business_Layer.Migrations
                     OrderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MemberId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     ShipperId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValue: new DateTime(2024, 6, 17, 10, 57, 12, 591, DateTimeKind.Local).AddTicks(513)),
+                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValue: new DateTime(2024, 6, 20, 9, 40, 9, 900, DateTimeKind.Local).AddTicks(4920)),
                     ShippedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     RequiredDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
