@@ -40,43 +40,7 @@ namespace API.Controllers
 			}
 		}
 
-		// POST api/<ShipperController>
-		[HttpGet("GetOrderStatusByShipperId")]
-		//[Authorize(Roles = UserRole.Admin)]
-		public async Task<APIResponseModel> GetOrderStatusByShipperId(string userId)
-		{
-			try
-			{
-				if (!ModelState.IsValid)
-				{
-					var errors = ModelState.Values.SelectMany(v => v.Errors)
-								  .Select(e => e.ErrorMessage).ToList();
-					return new APIResponseModel
-					{
-						code = 400,
-						Data = errors,
-						IsSuccess = false,
-						message = string.Join(";", errors)
-					};
-
-
-				}
-
-				var result = _shipperRepository.GetOrderStatusByShipperId(userId);
-				return await result;
-
-			}
-			catch (Exception ex)
-			{
-				return new APIResponseModel()
-				{
-					code = StatusCodes.Status400BadRequest,
-					message = ex.Message,
-					Data = ex,
-					IsSuccess = false
-				};
-			}
-		}
+		
 
 	}
 }

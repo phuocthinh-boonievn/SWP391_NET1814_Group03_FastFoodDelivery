@@ -2,6 +2,7 @@
 using Business_Layer.DataAccess;
 using Business_Layer.Repositories;
 using Business_Layer.Repositories.Interface;
+using Business_Layer.Repositories.Interfaces;
 using Data_Layer.Models;
 using Data_Layer.ResourceModel.ViewModel.User;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -57,6 +58,7 @@ namespace API
             services.AddTransient<IDataService, RoleDataRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IShipperRepository, ShipperRepository>();
+            services.AddTransient<IOrderStatusRepository, OrderStatusRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -53,35 +53,5 @@ namespace Business_Layer.Repositories
 			return result;
 		}
 
-		public async Task<APIResponseModel> GetOrderStatusByShipperId(string userId)
-		{
-			var shippers = await _userManager.GetUsersInRoleAsync("Shipper");
-			var user = await _userManager.FindByIdAsync(userId);
-			if (!shippers.Contains(user))
-			{
-				return new APIResponseModel()
-				{
-					code = 200,
-					message = "This user is not shipper",
-					IsSuccess = false,
-				};
-			}
-			var orderStatuses = _context.OrderStatuses.Where(o => o.UserId.Equals(userId)).ToList();
-			if (orderStatuses.Count() == 0) return new APIResponseModel()
-			{
-				code = 200,
-				message = "Shipper doesn't have any order",
-				IsSuccess = false,
-			};
-			var result = _mapper.Map<List<OrderStatus>>(orderStatuses);
-			return new APIResponseModel()
-			{
-				code = 200,
-				message = "Get successful",
-				IsSuccess = true,
-				Data = result
-			};
-		}
-
 	}
 }
