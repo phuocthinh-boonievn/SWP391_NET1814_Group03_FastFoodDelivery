@@ -14,32 +14,32 @@ namespace Business_Layer.AutoMapper
     {
         public ApplicationMapper()
         {
-            CreateMap<MenuFoodItem, MenuFoodItemVM>().ReverseMap();
-            CreateMap<Category, CategoryVM>().ReverseMap();
-            CreateMap<Order, OrderVM>().ReverseMap();
+			CreateMap<MenuFoodItem, MenuFoodItemVM>().ReverseMap();
+			CreateMap<Category, CategoryVM>().ReverseMap();
+			CreateMap<Order, OrderVM>().ReverseMap();
 
-            CreateMap<Order, OrderViewVM>().ReverseMap();
-            CreateMap<Order, OrderCreateVM>().ReverseMap();
-            CreateMap<Order, OrderUpdateVM>().ReverseMap();
-            CreateMap<Order, OrderPaymentVM>().ReverseMap();
+			CreateMap<Order, OrderViewVM>().ReverseMap();
+			CreateMap<Order, OrderCreateVM>().ReverseMap();
+			CreateMap<Order, OrderUpdateVM>().ReverseMap();
+			CreateMap<Order, OrderPaymentVM>().ReverseMap();
 
-            CreateMap<OrderDetail, OrderDetailViewVM>().ReverseMap();
-            CreateMap<OrderDetail, OrderDetaiCreateVM>().ReverseMap();
-            CreateMap<OrderDetail, OrderDetailUpdateVM>().ReverseMap();
+			CreateMap<OrderDetail, OrderDetailViewVM>().ReverseMap();
+			CreateMap<OrderDetail, OrderDetaiCreateVM>().ReverseMap();
+			CreateMap<OrderDetail, OrderDetailUpdateVM>().ReverseMap();
 
-            CreateMap<MenuFoodItem, MenuFoodItemViewVM>().ReverseMap();
-            CreateMap<MenuFoodItem, MenuFoodItemCreateVM>().ReverseMap();
-            CreateMap<MenuFoodItem, MenuFoodItemUpdateVM>().ReverseMap();
+			CreateMap<MenuFoodItem, MenuFoodItemViewVM>().ReverseMap();
+			CreateMap<MenuFoodItem, MenuFoodItemCreateVM>().ReverseMap();
+			CreateMap<MenuFoodItem, MenuFoodItemUpdateVM>().ReverseMap();
 
-            CreateMap<Cart, CartCreateVM>().ReverseMap();
-            CreateMap<Cart, CartUpdateVM>().ReverseMap();
-            CreateMap<Cart, CartViewVM>().ReverseMap();
+			CreateMap<Cart, CartCreateVM>().ReverseMap();
+			CreateMap<Cart, CartUpdateVM>().ReverseMap();
+			CreateMap<Cart, CartViewVM>().ReverseMap();
 
-            CreateMap<FeedBack, FeedBackCreateVM>().ReverseMap();
-            CreateMap<FeedBack, FeedBackUpdateVM>().ReverseMap();
-            CreateMap<FeedBack, FeedBackViewVM>().ReverseMap();
+			CreateMap<FeedBack, FeedBackCreateVM>().ReverseMap();
+			CreateMap<FeedBack, FeedBackUpdateVM>().ReverseMap();
+			CreateMap<FeedBack, FeedBackViewVM>().ReverseMap();
 
-            CreateMap<User, UserViewModel>().ReverseMap();
-        }
+			CreateMap<User, UserViewModel>().ReverseMap();
+		}
     }
 }

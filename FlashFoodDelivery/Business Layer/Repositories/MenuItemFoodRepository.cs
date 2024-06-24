@@ -12,18 +12,18 @@ using System.Threading.Tasks;
 
 namespace Business_Layer.Repositories
 {
-    public class MenuItemFoodRepository : IMenuFoodItemRepository
+    public class MenuItemFoodRepository : GenericRepository<MenuFoodItem>, IMenuFoodItemRepository
     {
         private readonly FastFoodDeliveryDBContext _context;
         private readonly IMapper _mapper;
 
-        public MenuItemFoodRepository(FastFoodDeliveryDBContext context, IMapper mapper)
-        {
-            _context = context;
-            _mapper = mapper;
-        }
+		public MenuItemFoodRepository(FastFoodDeliveryDBContext context, IMapper mapper) : base(context)
+		{
+			_context = context;
+			_mapper = mapper;
+		}
 
-        public async Task<bool> AddProduct(MenuFoodItemVM menuFoodItemVM)
+		public async Task<bool> AddProduct(MenuFoodItemVM menuFoodItemVM)
         {
             var menuFoodItem = _mapper.Map<MenuFoodItem>(menuFoodItemVM);
             _context.MenuFoodItems.Add(menuFoodItem);

@@ -22,13 +22,13 @@ namespace Business_Layer.Services
         private readonly IMapper _mapper;
         private readonly IOrderRepository _orderRepository;
         private readonly IOrderDetailRepository _orderDetailRepository;
-        private readonly IMenuFoodItem1Repository _menuFoodItem1Repository;
-        public OrderService(IMapper mapper, IOrderRepository orderRepository, IOrderDetailRepository orderDetailRepository, IMenuFoodItem1Repository menuFoodItem1Repository)
+        private readonly IMenuFoodItemRepository _menuFoodItemRepository;
+        public OrderService(IMapper mapper, IOrderRepository orderRepository, IOrderDetailRepository orderDetailRepository, IMenuFoodItemRepository menuFoodItem1Repository)
         {
             _mapper = mapper;
             _orderRepository = orderRepository;
             _orderDetailRepository = orderDetailRepository;
-            _menuFoodItem1Repository = menuFoodItem1Repository;
+            _menuFoodItemRepository = menuFoodItem1Repository;
         }
 
         public async Task<APIResponseModel> CancelOrderAsync(Guid id)
@@ -105,7 +105,7 @@ namespace Business_Layer.Services
                         foreach (OrderDetail od in orderDetailEntity)
                         {
                             od.OrderId = orderEntity.OrderId;
-                            od.UnitPrice = _menuFoodItem1Repository.GetByIdAsync(od.FoodId.GetValueOrDefault()).Result.UnitPrice;
+                            od.UnitPrice = _menuFoodItemRepository.GetMenuFoodItemById(od.FoodId.GetValueOrDefault()).Result.UnitPrice;
                             await _orderDetailRepository.AddAsync(od);
                         }
 

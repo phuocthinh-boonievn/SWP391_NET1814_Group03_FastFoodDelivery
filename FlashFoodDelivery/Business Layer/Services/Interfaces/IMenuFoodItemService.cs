@@ -10,11 +10,11 @@ namespace Business_Layer.Services.Interfaces
 {
     public interface IMenuFoodItemService
     {
-        Task<APIResponseModel> GetFoodsAsync();
-        Task<APIResponseModel> GetFoodByIdsAsync(Guid foodId);
-        Task<APIResponseModel> GetFoodsByCategoryIdAsync(Guid categoryId);
-        Task<APIResponseModel> CreateFoodAsync(MenuFoodItemCreateVM createdto);
-        Task<APIResponseModel> UpdateFoodAsync(Guid id, MenuFoodItemUpdateVM updatedto);
-        Task<APIResponseModel> DeleteFood(Guid id);
-    }
+		Task<APIResponseModel> GetFoodsAsync();
+		Task<APIResponseModel> GetFoodByIdsAsync(Guid foodId);
+		Task<APIResponseModel> GetFoodsByCategoryIdAsync(Guid categoryId);
+		Task<APIResponseModel> CreateFoodAsync(MenuFoodItemCreateVM createdto);
+		Task<APIResponseModel> UpdateFoodAsync(Guid id, MenuFoodItemUpdateVM updatedto);
+		Task<APIResponseModel> DeleteFood(Guid id);
+	}
 }
