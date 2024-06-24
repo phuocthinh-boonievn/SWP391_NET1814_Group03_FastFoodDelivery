@@ -38,7 +38,8 @@ namespace Business_Layer.Repositories
 			{
 				var shipperVM = new ShipperVM();
 				var orders = _context.Orders.Where(x => x.ShipperId.Equals(shipper.Id)).ToList();
-				shipperVM.userId = shipper.Id;
+				shipperVM.shipperId = shipper.Id;
+				shipperVM.name = shipper.FullName;
 				if (orders != null)
 				{
 					foreach(var order in orders)
@@ -52,6 +53,37 @@ namespace Business_Layer.Repositories
 			var result = _mapper.Map<List<ShipperVM>>(shipperList);
 			return result;
 		}
+		public async Task<APIResponseModel> ChangeToShipper(string userId)
+		{
 
+			var user = await _userManager.FindByIdAsync(userId);
+			if (user != null)
+			{
+				await _userManager.RemoveFromRoleAsync(user, "User");
+				var resultRole = await _userManager.AddToRoleAsync(user, "Shipper");
+
+				if (!resultRole.Succeeded)
+				{
+					return new APIResponseModel()
+					{
+						code = 200,
+						message = "Error when change user's role",
+						IsSuccess = false,
+					};
+				}
+				return new APIResponseModel()
+				{
+					code = 200,
+					message = "Changed successfully",
+					IsSuccess = true,
+				};
+			}
+			else return new APIResponseModel()
+			{
+				code = 200,
+				message = "User does not exist",
+				IsSuccess = false,
+			};
+		}
 	}
 }

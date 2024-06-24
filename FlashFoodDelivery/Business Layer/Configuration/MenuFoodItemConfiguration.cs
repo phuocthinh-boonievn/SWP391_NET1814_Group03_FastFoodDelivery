@@ -1,6 +1,6 @@
 ﻿using Data_Layer.Models;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +15,8 @@ namespace Business_Layer.Configuration
         {
             builder.ToTable("MenuFoodItem");
             builder.HasKey(x => x.FoodId);
-            builder.Property( x => x.FoodName ).IsRequired().HasMaxLength(100);
+            builder.Property(x => x.FoodId).ValueGeneratedOnAdd();
+            builder.Property(x => x.FoodName).IsRequired().HasMaxLength(100);
             builder.HasOne(x => x.Category).WithMany(x => x.MenuFoodItems).HasForeignKey(x => x.CategoryId);
 
         }

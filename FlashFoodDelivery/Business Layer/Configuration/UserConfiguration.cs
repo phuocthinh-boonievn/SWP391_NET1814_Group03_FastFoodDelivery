@@ -1,6 +1,6 @@
 ﻿using Data_Layer.Models;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +14,10 @@ namespace Business_Layer.Configuration
         public void Configure(EntityTypeBuilder<User> builder)
         {
             builder.ToTable("AspNetUsers");
+            builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.FullName).HasMaxLength(100);
             builder.Property(x => x.Address).HasMaxLength(100);
+            builder.Property(x => x.Status).HasMaxLength(100);
         }
     }
 }

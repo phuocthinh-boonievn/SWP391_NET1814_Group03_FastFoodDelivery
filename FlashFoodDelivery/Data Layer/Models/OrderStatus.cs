@@ -8,12 +8,12 @@ namespace Data_Layer.Models
 {
     public class OrderStatus
     {
-		public Guid OrderStatusId { get; set; }
-		public string? UserId { get; set; }
-		public Guid? OrderId { get; set; }
-		public string? OrderStatusName { get; set; }
+        public Guid OrderStatusId { get; set; }
+        public string? ShipperId { get; set; }
+        public Guid? OrderId { get; set; }
+        public string? OrderStatusName { get; set; }
 
-		public virtual Order Order { get; set; }
-		public virtual User User { get; set; }
-	}
+        public virtual Order Order { get; set; }
+        public virtual User User { get; set; }
+    }
 }

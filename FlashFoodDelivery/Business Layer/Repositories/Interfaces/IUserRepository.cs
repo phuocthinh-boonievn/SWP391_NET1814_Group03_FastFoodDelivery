@@ -13,7 +13,6 @@ namespace Business_Layer.Repositories
     {
         Task<APIResponseModel> Login(LoginVM model);
         Task<APIResponseModel> Register(RegisterVM model);
-        Task<APIResponseModel> ChangeToShipper(string userId);
 
 	}
 }

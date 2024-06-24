@@ -18,7 +18,7 @@ namespace API.Controllers
 			_statusRepository = statusRepository;
 		}
 
-		[HttpGet("GetOrderStatusByShipperId")]
+		[HttpPost("CreateOrderStatus")]
 		//[Authorize(Roles = UserRole.Admin)]
 		public async Task<APIResponseModel> GetOrderStatusByShipperId([FromBody] OrderStatus model)
 		{
@@ -93,7 +93,7 @@ namespace API.Controllers
 				}
 			}
 
-		[HttpGet("ChangeOrderStatus")]
+		[HttpPost("ChangeOrderStatus")]
 		//[Authorize(Roles = UserRole.Admin)]
 		public async Task<APIResponseModel> ChangeOrderStatus(string orderStatusId)
 		{

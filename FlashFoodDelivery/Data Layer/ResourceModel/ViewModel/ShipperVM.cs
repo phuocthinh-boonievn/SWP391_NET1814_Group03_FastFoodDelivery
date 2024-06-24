@@ -8,7 +8,8 @@ namespace Data_Layer.ResourceModel.ViewModel
 {
 	public class ShipperVM
 	{
-		public string? userId { get; set; }
+		public string? shipperId { get; set; }
+		public string? name { get; set; }
 		public List<Guid>? orderStatusId { get; set; }
 	}
 }

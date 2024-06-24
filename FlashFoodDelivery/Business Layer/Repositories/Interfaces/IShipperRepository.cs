@@ -13,5 +13,6 @@ namespace Business_Layer.Repositories.Interface
 	public interface IShipperRepository
 	{
 		Task<List<ShipperVM>> GetAllShipper();
+		Task<APIResponseModel> ChangeToShipper(string userId);
 	}
 }

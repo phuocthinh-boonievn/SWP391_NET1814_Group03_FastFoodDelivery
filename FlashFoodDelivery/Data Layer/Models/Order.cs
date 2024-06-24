@@ -11,19 +11,19 @@ namespace Data_Layer.Models
         public Guid OrderId { get; set; }
         public string? MemberId { get; set; }
         public Guid? ShipperId { get; set; }
-        public DateTime? OrderDate { get; set; }
+        public DateTime OrderDate { get; set; }
 
         public DateTime? ShippedDate { get; set; }
         public DateTime? RequiredDate { get; set; }
         public string? Address { get; set; }
         public Decimal? TotalPrice { get; set; }
-        public Guid? OrderStatusId { get; set; }
+        public string? StatusOrder { get; set; }
 
         public virtual User User { get; set; }
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
         public virtual ICollection<TransactionBill> TransactionBills { get; set; } = new List<TransactionBill>();
+        public virtual ICollection<OrderStatus> OrderStatuses { get; set; } = new List<OrderStatus>();
         public virtual ICollection<FeedBack> FeedBacks { get; set; } = new List<FeedBack>();
-		public virtual ICollection<OrderStatus> OrderStatuses { get; set; } = new List<OrderStatus>();
-	}
+    }
 }

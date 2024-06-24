@@ -17,11 +17,11 @@ namespace Business_Layer.Configuration
             builder.HasKey(x => x.OrderStatusId);
             builder.Property(x => x.OrderStatusId).ValueGeneratedOnAdd();
             builder.Property(x => x.OrderStatusName).HasMaxLength(128);
-            builder.Property(x => x.OrderId).HasMaxLength(128);
-            builder.Property(x => x.UserId);
+            builder.Property(x => x.OrderId);
+            builder.Property(x => x.ShipperId);
 
-            builder.HasOne(x => x.User).WithMany(x => x.OrderStatuses).HasForeignKey(x => x.UserId);
-			builder.HasOne(x => x.Order).WithMany(x => x.OrderStatuses).HasForeignKey(x => x.OrderId);
-		}
+            builder.HasOne(x => x.User).WithMany(x => x.OrderStatuses).HasForeignKey(x => x.ShipperId);
+            builder.HasOne(x => x.Order).WithMany(x => x.OrderStatuses).HasForeignKey(x => x.OrderId);
+        }
     }
 }

@@ -63,7 +63,7 @@ namespace Business_Layer.Repositories
 					IsSuccess = false,
 				};
 			}
-			var orderStatuses = _context.OrderStatuses.Where(o => o.UserId.Equals(userId)).ToList();
+			var orderStatuses = _context.OrderStatuses.Where(o => o.ShipperId.Equals(userId)).ToList();
 			if (orderStatuses == null) return new APIResponseModel()
 			{
 				code = 200,

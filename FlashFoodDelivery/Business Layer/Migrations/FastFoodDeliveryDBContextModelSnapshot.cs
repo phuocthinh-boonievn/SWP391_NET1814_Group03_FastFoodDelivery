@@ -22,6 +22,30 @@ namespace Business_Layer.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("Data_Layer.Models.Cart", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<Guid>("foodId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserID");
+
+                    b.HasIndex("foodId");
+
+                    b.ToTable("Cart");
+                });
+
             modelBuilder.Entity("Data_Layer.Models.Category", b =>
                 {
                     b.Property<Guid>("CategoryId")
@@ -30,6 +54,10 @@ namespace Business_Layer.Migrations
 
                     b.Property<string>("CategoriesName")
                         .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("CategoriesStatus")
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -111,23 +139,27 @@ namespace Business_Layer.Migrations
                     b.Property<string>("MemberId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<DateTime?>("OrderDate")
+                    b.Property<DateTime>("OrderDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 6, 20, 9, 40, 9, 900, DateTimeKind.Local).AddTicks(4920));
-
-                    b.Property<Guid?>("OrderStatusId")
-                        .HasMaxLength(50)
-                        .HasColumnType("uniqueidentifier");
+                        .HasDefaultValue(new DateTime(2024, 6, 24, 9, 41, 50, 367, DateTimeKind.Local).AddTicks(7456));
 
                     b.Property<DateTime?>("RequiredDate")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2024, 6, 27, 9, 41, 50, 367, DateTimeKind.Local).AddTicks(7814));
 
                     b.Property<DateTime?>("ShippedDate")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2024, 6, 29, 9, 41, 50, 367, DateTimeKind.Local).AddTicks(8035));
 
                     b.Property<Guid?>("ShipperId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("StatusOrder")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<decimal?>("TotalPrice")
                         .HasColumnType("money");
@@ -141,13 +173,19 @@ namespace Business_Layer.Migrations
 
             modelBuilder.Entity("Data_Layer.Models.OrderDetail", b =>
                 {
-                    b.Property<Guid>("OrderId")
+                    b.Property<Guid?>("OrderId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("FoodId")
+                    b.Property<Guid?>("FoodId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Quantity")
+                    b.Property<int>("OrderDetailId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderDetailId"), 1L, 1);
+
+                    b.Property<int?>("Quantity")
                         .HasColumnType("int");
 
                     b.Property<decimal?>("UnitPrice")
@@ -168,22 +206,20 @@ namespace Business_Layer.Migrations
 
                     b.Property<Guid?>("OrderId")
                         .IsRequired()
-                        .HasMaxLength(128)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("OrderStatusName")
                         .HasMaxLength(128)
                         .HasColumnType("nvarchar(128)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
+                    b.Property<string>("ShipperId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("OrderStatusId");
 
                     b.HasIndex("OrderId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("ShipperId");
 
                     b.ToTable("OrderStatus", (string)null);
                 });
@@ -208,6 +244,7 @@ namespace Business_Layer.Migrations
             modelBuilder.Entity("Data_Layer.Models.User", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
@@ -258,6 +295,10 @@ namespace Business_Layer.Migrations
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
@@ -412,6 +453,23 @@ namespace Business_Layer.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Data_Layer.Models.Cart", b =>
+                {
+                    b.HasOne("Data_Layer.Models.User", "User")
+                        .WithMany("Carts")
+                        .HasForeignKey("UserID");
+
+                    b.HasOne("Data_Layer.Models.MenuFoodItem", "Food")
+                        .WithMany("Carts")
+                        .HasForeignKey("foodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Food");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Data_Layer.Models.FeedBack", b =>
                 {
                     b.HasOne("Data_Layer.Models.Order", "Order")
@@ -476,9 +534,7 @@ namespace Business_Layer.Migrations
 
                     b.HasOne("Data_Layer.Models.User", "User")
                         .WithMany("OrderStatuses")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ShipperId");
 
                     b.Navigation("Order");
 
@@ -554,6 +610,8 @@ namespace Business_Layer.Migrations
 
             modelBuilder.Entity("Data_Layer.Models.MenuFoodItem", b =>
                 {
+                    b.Navigation("Carts");
+
                     b.Navigation("OrderDetails");
                 });
 
@@ -570,6 +628,8 @@ namespace Business_Layer.Migrations
 
             modelBuilder.Entity("Data_Layer.Models.User", b =>
                 {
+                    b.Navigation("Carts");
+
                     b.Navigation("FeedBacks");
 
                     b.Navigation("OrderStatuses");
