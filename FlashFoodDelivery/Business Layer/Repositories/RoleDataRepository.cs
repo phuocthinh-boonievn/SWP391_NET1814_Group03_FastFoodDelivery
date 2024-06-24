@@ -1,4 +1,5 @@
-﻿using Data_Layer.ResourceModel.Common;
+﻿using Business_Layer.Repositories.Interfaces;
+using Data_Layer.ResourceModel.Common;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using System;

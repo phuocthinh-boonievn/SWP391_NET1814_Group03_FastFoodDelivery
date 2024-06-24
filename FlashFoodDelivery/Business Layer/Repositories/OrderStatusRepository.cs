@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Business_Layer.Repositories
 {
-	public class OrderStatusRepository : IOrderStatusRepository
+    public class OrderStatusRepository : IOrderStatusRepository
 	{
 		private readonly FastFoodDeliveryDBContext _context;
 		private readonly IMapper _mapper;

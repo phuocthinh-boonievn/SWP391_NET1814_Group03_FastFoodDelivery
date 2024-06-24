@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Business_Layer.DataAccess;
-using Business_Layer.Repositories.Interface;
+using Business_Layer.Repositories.Interfaces;
 using Data_Layer.Models;
 using Data_Layer.ResourceModel.Common;
 using Data_Layer.ResourceModel.ViewModel;
@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Business_Layer.Repositories
 {
-	public class ShipperRepository : IShipperRepository
+    public class ShipperRepository : IShipperRepository
 	{
 		private readonly FastFoodDeliveryDBContext _context;
 		private readonly IMapper _mapper;

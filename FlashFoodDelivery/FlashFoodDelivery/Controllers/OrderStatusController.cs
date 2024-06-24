@@ -7,20 +7,20 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace API.Controllers
 {
-	[Route("api/[controller]")]
+    [Route("api/[controller]")]
 	[ApiController]
-	public class OrderController : ControllerBase
+	public class OrderStatusController : ControllerBase
 	{
 		private readonly IOrderStatusRepository _statusRepository;
 
-		public OrderController(IOrderStatusRepository statusRepository)
+		public OrderStatusController(IOrderStatusRepository statusRepository)
 		{
 			_statusRepository = statusRepository;
 		}
 
 		[HttpPost("CreateOrderStatus")]
 		//[Authorize(Roles = UserRole.Admin)]
-		public async Task<APIResponseModel> GetOrderStatusByShipperId([FromBody] OrderStatus model)
+		public async Task<APIResponseModel> CreateOrderStatus([FromBody] OrderStatus model)
 		{
 			try
 			{

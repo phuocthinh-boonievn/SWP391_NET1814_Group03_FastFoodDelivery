@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Business_Layer.Repositories.Interfaces
 {
-	public interface IOrderStatusRepository
-	{
-		Task<APIResponseModel> CreateOrderStatus(OrderStatus orderStatus);
-		Task<APIResponseModel> GetOrderStatusByShipperId(string userId);
-		Task<APIResponseModel> ChangeOrderStatus(string orderStatusId);
-	}
+    public interface IOrderStatusRepository
+    {
+        Task<APIResponseModel> CreateOrderStatus(OrderStatus orderStatus);
+        Task<APIResponseModel> GetOrderStatusByShipperId(string userId);
+        Task<APIResponseModel> ChangeOrderStatus(string orderStatusId);
+    }
 }

@@ -1,4 +1,4 @@
-﻿using Business_Layer.Repositories.Interface;
+﻿using Business_Layer.Repositories.Interfaces;
 using Data_Layer.Models;
 using Data_Layer.ResourceModel.Common;
 using Microsoft.AspNetCore.Mvc;
@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-	[Route("api/[controller]")]
+    [Route("api/[controller]")]
 	[ApiController]
 	public class ShipperController : ControllerBase
 	{

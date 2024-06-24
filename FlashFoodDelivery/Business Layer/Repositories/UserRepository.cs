@@ -1,9 +1,15 @@
 ﻿using AutoMapper;
 using Business_Layer.DataAccess;
+using Business_Layer.Repositories.Interfaces;
+using Business_Layer.Services;
+using Business_Layer.Utils;
 using Data_Layer.Models;
 using Data_Layer.ResourceModel.Common;
+using Data_Layer.ResourceModel.ViewModel.DashboardViewModel;
+using Data_Layer.ResourceModel.ViewModel.Enum;
 using Data_Layer.ResourceModel.ViewModel.User;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -16,8 +22,7 @@ using System.Threading.Tasks;
 
 namespace Business_Layer.Repositories
 {
-
-    public class UserRepository : IUserRepository
+    public class UserRepository : GenericRepository<User>, IUserRepository
     {
         private UserManager<User> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
@@ -27,13 +32,13 @@ namespace Business_Layer.Repositories
         public readonly FastFoodDeliveryDBContext _context;
         public readonly IMapper _mapper;
 
-        public UserRepository(UserManager<User> userManager, 
-            RoleManager<IdentityRole> roleManager, 
+        public UserRepository(UserManager<User> userManager,
+            RoleManager<IdentityRole> roleManager,
             SignInManager<User> signInManager,
             IOptionsMonitor<AdminAccount> adminAccount,
-            IOptionsMonitor<JWTSetting> jWTSetting, 
-            FastFoodDeliveryDBContext context, 
-            IMapper mapper)
+            IOptionsMonitor<JWTSetting> jWTSetting,
+            FastFoodDeliveryDBContext context,
+            IMapper mapper) : base(context)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -79,26 +84,12 @@ namespace Business_Layer.Repositories
                 IsSuccess = true,
             };
             var userIdentity = await _userManager.FindByNameAsync(model.UserName);
-            if (userIdentity == null || !await _userManager.CheckPasswordAsync(userIdentity, model.Password))
+
+            if( userIdentity != null )
             {
-                if (model.UserName == _adminAccount.username)
+                if(userIdentity.Status.ToString() == UserEnum.Active.ToString())
                 {
-                    var adminAccount = await _userManager.FindByNameAsync(_adminAccount.username);
-                    if (adminAccount == null)
-                    {
-                        var admin = new User()
-                        {
-                            Email = model.UserName,
-                            SecurityStamp = Guid.NewGuid().ToString(),
-                            UserName = model.UserName,
-                            FullName = model.UserName,
-                            Address = model.UserName,
-                            
-                            
-                        };
-                        var resultCreateUser = await _userManager.CreateAsync(admin, _adminAccount.password);
-                        var resultRole = await _userManager.AddToRoleAsync(admin, "Admin");
-                    }
+                    return result;
                 }
                 else
                 {
@@ -109,8 +100,45 @@ namespace Business_Layer.Repositories
                         message = "Username or password is incorrect!",
                     };
                 }
-
+                
             }
+            else {
+
+                if (userIdentity == null || !await _userManager.CheckPasswordAsync(userIdentity, model.Password))
+                {
+                    if (model.UserName == _adminAccount.username)
+                    {
+                        var adminAccount = await _userManager.FindByNameAsync(_adminAccount.username);
+                        if (adminAccount == null)
+                        {
+                            var admin = new User()
+                            {
+                                Email = model.UserName,
+                                SecurityStamp = Guid.NewGuid().ToString(),
+                                UserName = model.UserName,
+                                FullName = model.UserName,
+                                Address = model.UserName,
+
+
+                            };
+                            var resultCreateUser = await _userManager.CreateAsync(admin, _adminAccount.password);
+                            var resultRole = await _userManager.AddToRoleAsync(admin, "Admin");
+                        }
+                    }
+                    else
+                    {
+                        return new APIResponseModel
+                        {
+                            code = 400,
+                            IsSuccess = false,
+                            message = "Username or password is incorrect!",
+                        };
+                    }
+
+                }
+            }
+           
+
             return result;
         }
 
@@ -131,7 +159,7 @@ namespace Business_Layer.Repositories
             return result;
         }
 
-       
+
 
         public async Task<APIResponseModel> Register(RegisterVM model)
         {
@@ -140,8 +168,10 @@ namespace Business_Layer.Repositories
                 code = 200,
                 IsSuccess = true,
                 message = "User created success",
+                
+                
             };
-            //Check có trùng Email, Username của hệ thống không.
+            
             var userExistMail = await _userManager.FindByEmailAsync(model.Email);
             var userExistName = await _userManager.FindByNameAsync(model.Username);
             if (userExistMail != null || userExistName != null)
@@ -153,7 +183,7 @@ namespace Business_Layer.Repositories
                     IsSuccess = false,
                 };
             }
-            // Nếu chưa tồn tại thid tạo ra cho 1 cái account mới
+            
 
             var user = new User()
             {
@@ -162,7 +192,9 @@ namespace Business_Layer.Repositories
                 UserName = model.Username,
                 FullName = model.FullName,
                 Address = model.Address,
-                
+                PhoneNumber= model.phoneNumber,
+                Status = UserEnum.Active.ToString(),
+
             };
             var resultCreateUser = await _userManager.CreateAsync(user, model.Password);
             var resultRole = await _userManager.AddToRoleAsync(user, "User");
@@ -174,10 +206,48 @@ namespace Business_Layer.Repositories
                     code = 200,
                     message = "Error when create user",
                     IsSuccess = false,
+                    
                 };
             }
-            return result;
+            return new APIResponseModel (){
+                    code = 200,
+                    message= "Register successfully",
+                    IsSuccess = true,
+                    Data = user,
+            };
         }
-		
-	}
+        public async Task<User> GetUserByID(string id)
+        {
+            //var stringId = id.ToString();
+            var user = await _userManager.FindByIdAsync(id);
+            return user;
+        }
+        public async Task<List<LoyalCustomer>> GetTopFiveCustomerAsync()
+        {
+            var loyalCustomer = await _context.Users
+            .Select(user => new LoyalCustomer
+            {
+                CustomerName = user.UserName,
+                TotalOrders = user.Orders.Where(o => o.StatusOrder == "Confirmed").Count(),
+                TotalCost = user.Orders.SelectMany(o => o.OrderDetails).Sum(od => od.UnitPrice).GetValueOrDefault(),
+            })
+            .OrderByDescending(order => order.TotalOrders)
+            .ThenByDescending(cost => cost.TotalCost)
+            .Take(5)
+            .ToListAsync();
+            return loyalCustomer;
+        }
+
+        public User UpdateStatusUser(User user)
+        {
+            user.Status = UserEnum.IsDeleted.ToString();
+            return user;
+        }
+
+        public async Task<IEnumerable<User>> GetUserAccountAll()
+        {
+            var userAccountList = await _context.Users.Where(x => x.Status == UserEnum.Active.ToString()).ToListAsync();
+            return userAccountList;
+        }
+    }
 }

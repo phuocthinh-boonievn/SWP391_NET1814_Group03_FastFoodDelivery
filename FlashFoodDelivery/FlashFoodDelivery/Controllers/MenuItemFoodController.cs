@@ -1,24 +1,26 @@
-﻿using AutoMapper;
-using Business_Layer.DataAccess;
-using Business_Layer.Repositories;
+﻿using Business_Layer.Repositories.Interfaces;
+using Business_Layer.Services.Interfaces;
 using Data_Layer.ResourceModel.Common;
-using Data_Layer.ResourceModel.ViewModel;
+using Data_Layer.ResourceModel.ViewModel.MenuFoodItemVMs;
+using Data_Layer.ResourceModel.ViewModel.OrderVMs;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class MenuItemFoodController : ControllerBase
     {
         public IMenuFoodItemRepository _menuFoodItemRepository;
+        public IMenuFoodItemService _menuFoodItem1Service;
 
-        public MenuItemFoodController(IMenuFoodItemRepository menuFoodItemRepository)
+        public MenuItemFoodController(IMenuFoodItemRepository menuFoodItemRepository, IMenuFoodItemService menuFoodItem1Service)
         {
             _menuFoodItemRepository = menuFoodItemRepository;
+            _menuFoodItem1Service = menuFoodItem1Service;
         }
 
         [HttpGet]
@@ -40,6 +42,82 @@ namespace API.Controllers
             {
                 throw;
             }
+        }
+
+        [HttpGet]
+        [EnableCors("CorsPolicy")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> ViewAllFoods()
+        {
+            var result = await _menuFoodItem1Service.GetFoodsAsync();
+            return Ok(result);
+        }
+
+        [HttpGet("{categoryId:Guid}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> ViewAllFoodByCategoryID(Guid categoryId)
+        {
+            var result = await _menuFoodItem1Service.GetFoodsByCategoryIdAsync(categoryId);
+            return Ok(result);
+        }
+
+        [HttpGet("{id:Guid}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> ViewFoodByID(Guid id)
+        {
+            var result = await _menuFoodItem1Service.GetFoodByIdsAsync(id);
+            return Ok(result);
+        }
+
+        [HttpPost]
+        [EnableCors("CorsPolicy")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> CreateFood([FromBody] MenuFoodItemCreateVM createDto)
+        {
+            if (createDto == null)
+            {
+                return BadRequest();
+            }
+            var c = await _menuFoodItem1Service.CreateFoodAsync(createDto);
+            if (!c.IsSuccess)
+            {
+                return BadRequest(c);
+            }
+            return Ok(c);
+        }
+
+        [HttpPut("{id:Guid}")]
+       
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> UpdateFood(Guid id, [FromBody] MenuFoodItemUpdateVM updateDto)
+        {
+            var c = await _menuFoodItem1Service.UpdateFoodAsync(id, updateDto);
+            if (!c.IsSuccess)
+            {
+                return BadRequest(c);
+            }
+            return Ok(c);
+        }
+
+
+        [HttpDelete("{id:Guid}")]
+        [EnableCors("CorsPolicy")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> DeleteFood(Guid id)
+        {
+            var c = await _menuFoodItem1Service.DeleteFood(id);
+            if (!c.IsSuccess)
+            {
+                return BadRequest(c);
+            }
+            return Ok(c);
         }
     }
 }

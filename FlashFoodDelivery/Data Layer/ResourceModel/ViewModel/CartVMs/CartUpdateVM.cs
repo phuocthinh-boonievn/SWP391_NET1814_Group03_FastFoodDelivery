@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business_Layer.Services
+namespace Data_Layer.ResourceModel.ViewModel.CartVMs
 {
-    public interface ICurrentTime
+    public class CartUpdateVM
     {
-        public DateTime GetCurrentTime();
+
+        public int Quantity { get; set; }
     }
 }

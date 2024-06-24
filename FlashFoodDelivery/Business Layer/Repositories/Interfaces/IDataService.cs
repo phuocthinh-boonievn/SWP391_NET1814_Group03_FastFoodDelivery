@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business_Layer.Repositories
+namespace Business_Layer.Repositories.Interfaces
 {
     public interface IDataService
     {

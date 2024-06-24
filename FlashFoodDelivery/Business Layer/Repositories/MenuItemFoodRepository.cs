@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Business_Layer.DataAccess;
+using Business_Layer.Repositories.Interfaces;
 using Data_Layer.Models;
 using Data_Layer.ResourceModel.ViewModel;
 using Microsoft.EntityFrameworkCore;
