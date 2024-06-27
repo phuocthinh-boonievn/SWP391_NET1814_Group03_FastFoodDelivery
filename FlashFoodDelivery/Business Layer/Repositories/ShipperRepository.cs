@@ -3,7 +3,9 @@ using Business_Layer.DataAccess;
 using Business_Layer.Repositories.Interfaces;
 using Data_Layer.Models;
 using Data_Layer.ResourceModel.Common;
-using Data_Layer.ResourceModel.ViewModel;
+using Data_Layer.ResourceModel.ViewModel.Enum;
+using Data_Layer.ResourceModel.ViewModel.Shipper;
+using Data_Layer.ResourceModel.ViewModel.User;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -15,14 +17,14 @@ using System.Threading.Tasks;
 
 namespace Business_Layer.Repositories
 {
-    public class ShipperRepository : IShipperRepository
+    public class ShipperRepository : GenericRepository<User>, IShipperRepository
 	{
 		private readonly FastFoodDeliveryDBContext _context;
 		private readonly IMapper _mapper;
 		private UserManager<User> _userManager;
 		private readonly RoleManager<IdentityRole> _roleManager;
 
-		public ShipperRepository(FastFoodDeliveryDBContext context, IMapper mapper, UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
+		public ShipperRepository(FastFoodDeliveryDBContext context, IMapper mapper, UserManager<User> userManager, RoleManager<IdentityRole> roleManager) : base(context)
 		{
 			_context = context;
 			_mapper = mapper;
@@ -53,36 +55,81 @@ namespace Business_Layer.Repositories
 			var result = _mapper.Map<List<ShipperVM>>(shipperList);
 			return result;
 		}
-		public async Task<APIResponseModel> ChangeToShipper(string userId)
+
+		public async Task<IEnumerable<ShipperVM>> GetShippeAccountAll()
 		{
-
-			var user = await _userManager.FindByIdAsync(userId);
-			if (user != null)
+			var shippers = await _userManager.GetUsersInRoleAsync("Shipper");
+			var shipperList = new List<ShipperVM>();
+			foreach (var shipper in shippers)
 			{
-				await _userManager.RemoveFromRoleAsync(user, "User");
-				var resultRole = await _userManager.AddToRoleAsync(user, "Shipper");
-
-				if (!resultRole.Succeeded)
+				var shipperVM = new ShipperVM();
+				var orders = _context.Orders.Where(x => x.ShipperId.Equals(shipper.Id)).ToList();
+				shipperVM.shipperId = shipper.Id;
+				shipperVM.name = shipper.FullName;
+				if (orders != null)
 				{
-					return new APIResponseModel()
+					foreach (var order in orders)
 					{
-						code = 200,
-						message = "Error when change user's role",
-						IsSuccess = false,
-					};
+						shipperVM.orderStatusId.Add(order.OrderId);
+					}
 				}
+				else shipperVM.orderStatusId = null;
+				shipperList.Add(shipperVM);
+			}
+			var result = _mapper.Map<List<ShipperVM>>(shipperList);
+			return result;
+		}
+
+		public async Task<APIResponseModel> CreateShipperAccount(ShipperCreateVM model)
+		{
+			APIResponseModel result = new APIResponseModel()
+			{
+				code = 200,
+				IsSuccess = true,
+				message = "Shipper created success",
+
+
+			};
+
+			var userExistName = await _userManager.FindByNameAsync(model.Username);
+			if (userExistName != null)
+			{
+				return new APIResponseModel
+				{
+					code = 400,
+					message = "User has been already existed!",
+					IsSuccess = false,
+				};
+			}
+
+
+			var user = new User()
+			{
+				SecurityStamp = Guid.NewGuid().ToString(),
+				UserName = model.Username,
+				FullName = model.FullName,
+				Status = UserEnum.Active.ToString(),
+
+			};
+			var resultCreateUser = await _userManager.CreateAsync(user, model.Password);
+			var resultRole = await _userManager.AddToRoleAsync(user, "Shipper");
+
+			if (!resultCreateUser.Succeeded)
+			{
 				return new APIResponseModel()
 				{
 					code = 200,
-					message = "Changed successfully",
-					IsSuccess = true,
+					message = "Error when create user",
+					IsSuccess = false,
+
 				};
 			}
-			else return new APIResponseModel()
+			return new APIResponseModel()
 			{
 				code = 200,
-				message = "User does not exist",
-				IsSuccess = false,
+				message = "Add shipper successfully",
+				IsSuccess = true,
+				Data = user,
 			};
 		}
 	}

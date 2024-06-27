@@ -3,6 +3,7 @@ using Business_Layer.DataAccess;
 using Business_Layer.Repositories.Interfaces;
 using Data_Layer.Models;
 using Data_Layer.ResourceModel.Common;
+using Data_Layer.ResourceModel.ViewModel.OrderStatusVM;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -12,14 +13,14 @@ using System.Threading.Tasks;
 
 namespace Business_Layer.Repositories
 {
-    public class OrderStatusRepository : IOrderStatusRepository
+    public class OrderStatusRepository : GenericRepository<OrderStatusCreateVM>, IOrderStatusRepository
 	{
 		private readonly FastFoodDeliveryDBContext _context;
 		private readonly IMapper _mapper;
 		private UserManager<User> _userManager;
 		private readonly RoleManager<IdentityRole> _roleManager;
 
-		public OrderStatusRepository(FastFoodDeliveryDBContext context, IMapper mapper, UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
+		public OrderStatusRepository(FastFoodDeliveryDBContext context, IMapper mapper, UserManager<User> userManager, RoleManager<IdentityRole> roleManager) : base(context)
 		{
 			_context = context;
 			_mapper = mapper;
@@ -27,28 +28,28 @@ namespace Business_Layer.Repositories
 			_roleManager = roleManager;
 		}
 
-		public async Task<APIResponseModel> CreateOrderStatus(OrderStatus orderStatus)
-		{
-			try
-			{_context.OrderStatuses.Add(orderStatus);
-			_context.SaveChanges();
-			return new APIResponseModel()
-			{
-				code = 200,
-				message = "Create success",
-				IsSuccess = true,
-				Data = orderStatus
-			}; 
-			}catch (Exception ex)
-			{
-				return new APIResponseModel()
-				{
-					code = 200,
-					message = "Create fail",
-					IsSuccess = false,
-				};
-			}
-		}
+		//public async Task<APIResponseModel> CreateOrderStatus(OrderStatusCreateVM orderStatus)
+		//{
+		//	try
+		//	{_context.OrderStatuses.Add(orderStatus);
+		//	_context.SaveChanges();
+		//	return new APIResponseModel()
+		//	{
+		//		code = 200,
+		//		message = "Create success",
+		//		IsSuccess = true,
+		//		Data = orderStatus
+		//	}; 
+		//	}catch (Exception ex)
+		//	{
+		//		return new APIResponseModel()
+		//		{
+		//			code = 200,
+		//			message = "Create fail",
+		//			IsSuccess = false,
+		//		};
+		//	}
+		//}
 
 		public async Task<APIResponseModel> GetOrderStatusByShipperId(string userId)
 		{

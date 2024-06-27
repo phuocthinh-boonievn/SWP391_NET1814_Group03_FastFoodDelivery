@@ -63,7 +63,8 @@ namespace API
 			services.AddTransient<IUserSerivce, UserService>();
 			services.AddTransient<IClaimsService, ClaimsService>();
 
-
+			services.AddTransient<IShipperRepository, ShipperRepository>();
+			services.AddTransient<IShipperService, ShipperService>();
 			//Order
 			services.AddScoped<IOrderService, OrderService>();
 			services.AddScoped<IOrderRepository, OrderRepository>();
@@ -71,6 +72,11 @@ namespace API
 			//OrderDetail
 			services.AddScoped<IOrderDetailService, OrderDetailService>();
 			services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
+
+			//OrderStatus
+			services.AddScoped<IOrderStatusService, OrderStatusService>();
+			services.AddScoped<IOrderStatusRepository, OrderStatusRepository>();
+
 
 			//MenuFoodItem
 			services.AddScoped<IMenuFoodItemRepository, MenuItemFoodRepository>();

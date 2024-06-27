@@ -1,6 +1,7 @@
 ﻿using Business_Layer.Repositories.Interfaces;
 using Data_Layer.Models;
 using Data_Layer.ResourceModel.Common;
+using Data_Layer.ResourceModel.ViewModel.OrderStatusVM;
 using Data_Layer.ResourceModel.ViewModel.User;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -20,7 +21,7 @@ namespace API.Controllers
 
 		[HttpPost("CreateOrderStatus")]
 		//[Authorize(Roles = UserRole.Admin)]
-		public async Task<APIResponseModel> CreateOrderStatus([FromBody] OrderStatus model)
+		public async Task<APIResponseModel> CreateOrderStatus([FromBody] OrderStatusCreateVM model)
 		{
 			try
 			{
