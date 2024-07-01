@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Layout from "./components/layout";
-import AdminAccountManagement from "./pages/accountuser-management";
+import AdminAccountManagement from "./pages/accountuser-management/AdminAccountManagement";
 import Category from "./pages/category-management";
 import FoodItemManagement from "./pages/fastfood-magegement";
 import HomePage from "./pages/home";
