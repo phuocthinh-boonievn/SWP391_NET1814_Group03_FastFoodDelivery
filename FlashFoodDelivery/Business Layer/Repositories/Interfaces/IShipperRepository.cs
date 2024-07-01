@@ -14,6 +14,6 @@ namespace Business_Layer.Repositories.Interfaces
 	{
 		Task<IEnumerable<ShipperVM>> GetShippeAccountAll();
 		Task<APIResponseModel> CreateShipperAccount(ShipperCreateVM model);
-		Task<IEnumerable<ShipperVM>> GetShippeAccountById(string id);
+		Task<ShipperVM> GetShippeAccountById(string id);
 	}
 }

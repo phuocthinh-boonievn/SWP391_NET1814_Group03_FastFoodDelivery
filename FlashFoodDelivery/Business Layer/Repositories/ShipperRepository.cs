@@ -4,6 +4,7 @@ using Business_Layer.Repositories.Interfaces;
 using Data_Layer.Models;
 using Data_Layer.ResourceModel.Common;
 using Data_Layer.ResourceModel.ViewModel.Enum;
+using Data_Layer.ResourceModel.ViewModel.OrderStatusVM;
 using Data_Layer.ResourceModel.ViewModel.Shipper;
 using Data_Layer.ResourceModel.ViewModel.User;
 using Microsoft.AspNetCore.Http;
@@ -23,37 +24,15 @@ namespace Business_Layer.Repositories
 		private readonly IMapper _mapper;
 		private UserManager<User> _userManager;
 		private readonly RoleManager<IdentityRole> _roleManager;
+		private readonly IOrderStatusRepository _orderStatusRepository;
 
-		public ShipperRepository(FastFoodDeliveryDBContext context, IMapper mapper, UserManager<User> userManager, RoleManager<IdentityRole> roleManager) : base(context)
+		public ShipperRepository(FastFoodDeliveryDBContext context, IMapper mapper, UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IOrderStatusRepository orderStatusRepository) : base(context)
 		{
 			_context = context;
 			_mapper = mapper;
 			_userManager = userManager;
 			_roleManager = roleManager;
-		}
-
-		public async Task<List<ShipperVM>> GetAllShipper()
-		{
-			var shippers = await _userManager.GetUsersInRoleAsync("Shipper");
-			var shipperList = new List<ShipperVM>();
-			foreach (var shipper in shippers)
-			{
-				var shipperVM = new ShipperVM();
-				var orders = _context.Orders.Where(x => x.ShipperId.Equals(shipper.Id)).ToList();
-				shipperVM.shipperId = shipper.Id;
-				shipperVM.name = shipper.FullName;
-				if (orders != null)
-				{
-					foreach(var order in orders)
-					{
-						shipperVM.orderStatusId.Add(order.OrderId);
-					}
-				}
-				else shipperVM.orderStatusId = null;
-				shipperList.Add(shipperVM);
-			}
-			var result = _mapper.Map<List<ShipperVM>>(shipperList);
-			return result;
+			_orderStatusRepository = orderStatusRepository;
 		}
 
 		public async Task<IEnumerable<ShipperVM>> GetShippeAccountAll()
@@ -63,14 +42,14 @@ namespace Business_Layer.Repositories
 			foreach (var shipper in shippers)
 			{
 				var shipperVM = new ShipperVM();
-				var orders = _context.Orders.Where(x => x.ShipperId.Equals(shipper.Id)).ToList();
+				var orders = _context.OrderStatuses.Where(x => x.ShipperId.Equals(shipper.Id)).ToList();
 				shipperVM.shipperId = shipper.Id;
 				shipperVM.name = shipper.FullName;
 				if (orders != null)
 				{
 					foreach (var order in orders)
 					{
-						shipperVM.orderStatusId.Add(order.OrderId);
+						shipperVM.orderStatusId.Add(order.OrderStatusId);
 					}
 				}
 				else shipperVM.orderStatusId = null;
@@ -132,5 +111,24 @@ namespace Business_Layer.Repositories
 				Data = user,
 			};
 		}
+
+		public async Task<ShipperVM> GetShippeAccountById(string id)
+		{
+			var user = _context.Users.FirstOrDefault(i => i.Id.Equals(id));
+			ShipperVM shipperVM = new ShipperVM { 
+				shipperId = id,
+				name = user.FullName,
+			};
+			var orders = _context.OrderStatuses.Where(x => x.ShipperId.Equals(id)).ToList();
+			if (orders != null)
+			{
+				foreach (var order in orders)
+				{
+					shipperVM.orderStatusId.Add(order.OrderStatusId);
+				}
+			}
+			return shipperVM;
+		}
 	}
+
 }

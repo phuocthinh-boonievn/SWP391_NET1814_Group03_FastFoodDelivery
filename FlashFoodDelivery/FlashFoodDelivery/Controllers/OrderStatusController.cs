@@ -1,4 +1,5 @@
 ﻿using Business_Layer.Repositories.Interfaces;
+using Business_Layer.Services.Interfaces;
 using Data_Layer.Models;
 using Data_Layer.ResourceModel.Common;
 using Data_Layer.ResourceModel.ViewModel.OrderStatusVM;
@@ -12,16 +13,16 @@ namespace API.Controllers
 	[ApiController]
 	public class OrderStatusController : ControllerBase
 	{
-		private readonly IOrderStatusRepository _statusRepository;
+		private readonly IOrderStatusService _odrerstatusService;
 
-		public OrderStatusController(IOrderStatusRepository statusRepository)
+		public OrderStatusController(IOrderStatusService statusOrderStatus)
 		{
-			_statusRepository = statusRepository;
+			_odrerstatusService = statusOrderStatus;
 		}
 
 		[HttpPost("CreateOrderStatus")]
 		//[Authorize(Roles = UserRole.Admin)]
-		public async Task<APIResponseModel> CreateOrderStatus([FromBody] OrderStatusCreateVM model)
+		public async Task<IActionResult> CreateOrderStatus([FromBody] OrderStatusCreateVM model)
 		{
 			try
 			{
@@ -29,37 +30,23 @@ namespace API.Controllers
 				{
 					var errors = ModelState.Values.SelectMany(v => v.Errors)
 								  .Select(e => e.ErrorMessage).ToList();
-					return new APIResponseModel
-					{
-						code = 400,
-						Data = errors,
-						IsSuccess = false,
-						message = string.Join(";", errors)
-					};
-
+					return BadRequest(errors);
 
 				}
 
-				var result = _statusRepository.CreateOrderStatus(model);
-				return await result;
-
+				var result = _odrerstatusService.CreateOrderStatusAsync(model);
+				return Ok(result);
 			}
 			catch (Exception ex)
 			{
-				return new APIResponseModel()
-				{
-					code = StatusCodes.Status400BadRequest,
-					message = ex.Message,
-					Data = ex,
-					IsSuccess = false
-				};
+				return BadRequest(ex);
 			}
 		}
 
 		// POST api/<ShipperController>
 		[HttpGet("GetOrderStatusByShipperId")]
 			//[Authorize(Roles = UserRole.Admin)]
-			public async Task<APIResponseModel> GetOrderStatusByShipperId(string userId)
+			public async Task<IActionResult> GetOrderStatusByShipperId(string userId)
 			{
 				try
 				{
@@ -67,36 +54,22 @@ namespace API.Controllers
 					{
 						var errors = ModelState.Values.SelectMany(v => v.Errors)
 									  .Select(e => e.ErrorMessage).ToList();
-						return new APIResponseModel
-						{
-							code = 400,
-							Data = errors,
-							IsSuccess = false,
-							message = string.Join(";", errors)
-						};
-
-
+					return BadRequest(errors);
 					}
 
-					var result = _statusRepository.GetOrderStatusByShipperId(userId);
-					return await result;
+					var result = _odrerstatusService.GetOrderStatusByShipperId(userId);
+				return Ok(result);
 
 				}
 				catch (Exception ex)
 				{
-					return new APIResponseModel()
-					{
-						code = StatusCodes.Status400BadRequest,
-						message = ex.Message,
-						Data = ex,
-						IsSuccess = false
-					};
+					return NotFound();
 				}
 			}
 
 		[HttpPost("ChangeOrderStatus")]
 		//[Authorize(Roles = UserRole.Admin)]
-		public async Task<APIResponseModel> ChangeOrderStatus(string orderStatusId)
+		public async Task<IActionResult> ChangeOrderStatus(string orderStatusId)
 		{
 			try
 			{
@@ -104,28 +77,16 @@ namespace API.Controllers
 				{
 					var errors = ModelState.Values.SelectMany(v => v.Errors)
 								  .Select(e => e.ErrorMessage).ToList();
-					return new APIResponseModel
-					{
-						code = 400,
-						Data = errors,
-						IsSuccess = false,
-						message = string.Join(";", errors)
-					};
+					return BadRequest(errors);
 				}
 
-				var result = _statusRepository.ChangeOrderStatus(orderStatusId);
-				return await result;
+				var result = _odrerstatusService.ChangeOrderStatus(Guid.Parse(orderStatusId));
+				return Ok(result);
 
 			}
 			catch (Exception ex)
 			{
-				return new APIResponseModel()
-				{
-					code = StatusCodes.Status400BadRequest,
-					message = ex.Message,
-					Data = ex,
-					IsSuccess = false
-				};
+				return NotFound(ex);
 			}
 		}
 	}

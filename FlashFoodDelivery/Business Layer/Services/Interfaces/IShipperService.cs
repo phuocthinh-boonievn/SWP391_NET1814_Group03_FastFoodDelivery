@@ -13,8 +13,7 @@ namespace Business_Layer.Services.Interfaces
     public interface IShipperService
     {
 		Task<APIResponseModel> GetShipperAsync();
-		Task<UserViewModel> GetShipperById(string id);
-		Task<APIResponseModel> UpdateShipper(string id, ShipperCreateVM model);
-		Task<APIResponseModel> DeleteShipper(string id);
+		Task<ShipperVM> GetShipperById(string id);
+		Task<APIResponseModel> CreateShipperAccount(ShipperCreateVM model);
 	}
 }

@@ -3,32 +3,72 @@
   "WorkspaceRootPath": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|e:\\school\\visual studio\\swp391_net1814_group03_fastfooddelivery\\flashfooddelivery\\business layer\\automapper\\applicationmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|solutionrelative:business layer\\automapper\\applicationmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|e:\\school\\visual studio\\swp391_net1814_group03_fastfooddelivery\\flashfooddelivery\\business layer\\repositories\\orderstatusrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|solutionrelative:business layer\\repositories\\orderstatusrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|e:\\school\\visual studio\\swp391_net1814_group03_fastfooddelivery\\flashfooddelivery\\business layer\\repositories\\interfaces\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|solutionrelative:business layer\\repositories\\interfaces\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A299F845-25D9-4EA5-B866-3E9BB2A6CCF3}|FlashFoodDelivery\\API.csproj|e:\\school\\visual studio\\swp391_net1814_group03_fastfooddelivery\\flashfooddelivery\\flashfooddelivery\\controllers\\orderstatuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A299F845-25D9-4EA5-B866-3E9BB2A6CCF3}|FlashFoodDelivery\\API.csproj|solutionrelative:flashfooddelivery\\controllers\\orderstatuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BF46BB09-A06F-409B-BFB1-6FE977666FA6}|Data Layer\\DataLayer.csproj|e:\\school\\visual studio\\swp391_net1814_group03_fastfooddelivery\\flashfooddelivery\\data layer\\resourcemodel\\viewmodel\\orderstatusvm\\orderstatuscreatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\business layer\\services\\orderstatusservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|solutionrelative:business layer\\services\\orderstatusservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\business layer\\services\\interfaces\\iorderstatusservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|solutionrelative:business layer\\services\\interfaces\\iorderstatusservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|e:\\school\\visual studio\\swp391_net1814_group03_fastfooddelivery\\flashfooddelivery\\business layer\\repositories\\shipperrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|solutionrelative:business layer\\repositories\\shipperrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\business layer\\repositories\\interfaces\\iorderstatusrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|solutionrelative:business layer\\repositories\\interfaces\\iorderstatusrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|e:\\school\\visual studio\\swp391_net1814_group03_fastfooddelivery\\flashfooddelivery\\business layer\\services\\interfaces\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|solutionrelative:business layer\\services\\interfaces\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF46BB09-A06F-409B-BFB1-6FE977666FA6}|Data Layer\\DataLayer.csproj|E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\data layer\\resourcemodel\\viewmodel\\orderstatusvm\\orderstatuscreatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BF46BB09-A06F-409B-BFB1-6FE977666FA6}|Data Layer\\DataLayer.csproj|solutionrelative:data layer\\resourcemodel\\viewmodel\\orderstatusvm\\orderstatuscreatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BF46BB09-A06F-409B-BFB1-6FE977666FA6}|Data Layer\\DataLayer.csproj|e:\\school\\visual studio\\swp391_net1814_group03_fastfooddelivery\\flashfooddelivery\\data layer\\models\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BF46BB09-A06F-409B-BFB1-6FE977666FA6}|Data Layer\\DataLayer.csproj|solutionrelative:data layer\\models\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BF46BB09-A06F-409B-BFB1-6FE977666FA6}|Data Layer\\DataLayer.csproj|e:\\school\\visual studio\\swp391_net1814_group03_fastfooddelivery\\flashfooddelivery\\data layer\\resourcemodel\\viewmodel\\shippervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BF46BB09-A06F-409B-BFB1-6FE977666FA6}|Data Layer\\DataLayer.csproj|solutionrelative:data layer\\resourcemodel\\viewmodel\\shippervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|e:\\school\\visual studio\\swp391_net1814_group03_fastfooddelivery\\flashfooddelivery\\business layer\\automapper\\applicationmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|solutionrelative:business layer\\automapper\\applicationmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A299F845-25D9-4EA5-B866-3E9BB2A6CCF3}|FlashFoodDelivery\\API.csproj|e:\\school\\visual studio\\swp391_net1814_group03_fastfooddelivery\\flashfooddelivery\\flashfooddelivery\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A299F845-25D9-4EA5-B866-3E9BB2A6CCF3}|FlashFoodDelivery\\API.csproj|solutionrelative:flashfooddelivery\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\business layer\\repositories\\orderstatusrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|solutionrelative:business layer\\repositories\\orderstatusrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\business layer\\repositories\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|solutionrelative:business layer\\repositories\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\business layer\\repositories\\orderdetailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|solutionrelative:business layer\\repositories\\orderdetailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\business layer\\services\\shipperservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|solutionrelative:business layer\\services\\shipperservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\business layer\\repositories\\interfaces\\ishipperrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|solutionrelative:business layer\\repositories\\interfaces\\ishipperrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\business layer\\repositories\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|solutionrelative:business layer\\repositories\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\business layer\\services\\orderdetailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BE5F4B0-7CB0-46A0-8EE1-D45446A35694}|Business Layer\\BusinessLayer.csproj|solutionrelative:business layer\\services\\orderdetailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 69,
+          "SelectedChildIndex": 64,
           "Children": [
             {
               "$type": "Bookmark",
@@ -298,94 +338,217 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "OrderStatusRepository.cs",
-              "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Repositories\\OrderStatusRepository.cs",
-              "RelativeDocumentMoniker": "Business Layer\\Repositories\\OrderStatusRepository.cs",
-              "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Repositories\\OrderStatusRepository.cs",
-              "RelativeToolTip": "Business Layer\\Repositories\\OrderStatusRepository.cs",
-              "ViewState": "AQIAABcAAABQm5mZmbkwwB0AAAAmAAAA",
+              "DocumentIndex": 0,
+              "Title": "IGenericRepository.cs",
+              "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Repositories\\Interfaces\\IGenericRepository.cs",
+              "RelativeDocumentMoniker": "Business Layer\\Repositories\\Interfaces\\IGenericRepository.cs",
+              "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Repositories\\Interfaces\\IGenericRepository.cs",
+              "RelativeToolTip": "Business Layer\\Repositories\\Interfaces\\IGenericRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-27T09:58:20.638Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "OrderStatusController.cs",
-              "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\FlashFoodDelivery\\Controllers\\OrderStatusController.cs",
-              "RelativeDocumentMoniker": "FlashFoodDelivery\\Controllers\\OrderStatusController.cs",
-              "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\FlashFoodDelivery\\Controllers\\OrderStatusController.cs",
-              "RelativeToolTip": "FlashFoodDelivery\\Controllers\\OrderStatusController.cs",
-              "ViewState": "AQIAABIAAAAAVzMzMzP3vykAAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-27T09:57:37.191Z",
+              "WhenOpened": "2024-06-28T04:02:02.619Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "OrderStatus.cs",
-              "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Data Layer\\Models\\OrderStatus.cs",
-              "RelativeDocumentMoniker": "Data Layer\\Models\\OrderStatus.cs",
-              "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Data Layer\\Models\\OrderStatus.cs",
-              "RelativeToolTip": "Data Layer\\Models\\OrderStatus.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "ShipperRepository.cs",
+              "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Repositories\\ShipperRepository.cs",
+              "RelativeDocumentMoniker": "Business Layer\\Repositories\\ShipperRepository.cs",
+              "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Repositories\\ShipperRepository.cs",
+              "RelativeToolTip": "Business Layer\\Repositories\\ShipperRepository.cs",
+              "ViewState": "AQIAABgAAAAAkJmZmZn/vxoAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-27T09:52:12.65Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "OrderStatusCreateVM.cs",
-              "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Data Layer\\ResourceModel\\ViewModel\\OrderStatusVM\\OrderStatusCreateVM.cs",
-              "RelativeDocumentMoniker": "Data Layer\\ResourceModel\\ViewModel\\OrderStatusVM\\OrderStatusCreateVM.cs",
-              "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Data Layer\\ResourceModel\\ViewModel\\OrderStatusVM\\OrderStatusCreateVM.cs",
-              "RelativeToolTip": "Data Layer\\ResourceModel\\ViewModel\\OrderStatusVM\\OrderStatusCreateVM.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-27T09:51:20.925Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ShipperVM.cs",
-              "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Data Layer\\ResourceModel\\ViewModel\\ShipperVM.cs",
-              "RelativeDocumentMoniker": "Data Layer\\ResourceModel\\ViewModel\\ShipperVM.cs",
-              "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Data Layer\\ResourceModel\\ViewModel\\ShipperVM.cs",
-              "RelativeToolTip": "Data Layer\\ResourceModel\\ViewModel\\ShipperVM.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-27T09:49:19.545Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ApplicationMapper.cs",
-              "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\AutoMapper\\ApplicationMapper.cs",
-              "RelativeDocumentMoniker": "Business Layer\\AutoMapper\\ApplicationMapper.cs",
-              "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\AutoMapper\\ApplicationMapper.cs",
-              "RelativeToolTip": "Business Layer\\AutoMapper\\ApplicationMapper.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAewCwAAAA+AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-27T09:46:36.227Z",
+              "WhenOpened": "2024-06-28T03:47:29.525Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "IOrderService.cs",
+              "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Services\\Interfaces\\IOrderService.cs",
+              "RelativeDocumentMoniker": "Business Layer\\Services\\Interfaces\\IOrderService.cs",
+              "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Services\\Interfaces\\IOrderService.cs",
+              "RelativeToolTip": "Business Layer\\Services\\Interfaces\\IOrderService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T03:43:36.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrderStatusController.cs",
+              "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\FlashFoodDelivery\\Controllers\\OrderStatusController.cs",
+              "RelativeDocumentMoniker": "FlashFoodDelivery\\Controllers\\OrderStatusController.cs",
+              "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\FlashFoodDelivery\\Controllers\\OrderStatusController.cs",
+              "RelativeToolTip": "FlashFoodDelivery\\Controllers\\OrderStatusController.cs",
+              "ViewState": "AQIAABYAAACA/P///38hwFIAAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T18:43:28.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrderStatusService.cs",
+              "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Services\\OrderStatusService.cs",
+              "RelativeDocumentMoniker": "Business Layer\\Services\\OrderStatusService.cs",
+              "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Services\\OrderStatusService.cs",
+              "RelativeToolTip": "Business Layer\\Services\\OrderStatusService.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAowB8AAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T17:47:09.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IOrderStatusService.cs",
+              "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Services\\Interfaces\\IOrderStatusService.cs",
+              "RelativeDocumentMoniker": "Business Layer\\Services\\Interfaces\\IOrderStatusService.cs",
+              "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Services\\Interfaces\\IOrderStatusService.cs",
+              "RelativeToolTip": "Business Layer\\Services\\Interfaces\\IOrderStatusService.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAlwBEAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T17:52:07.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "OrderStatusCreateVM.cs",
+              "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Data Layer\\ResourceModel\\ViewModel\\OrderStatusVM\\OrderStatusCreateVM.cs",
+              "RelativeDocumentMoniker": "Data Layer\\ResourceModel\\ViewModel\\OrderStatusVM\\OrderStatusCreateVM.cs",
+              "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Data Layer\\ResourceModel\\ViewModel\\OrderStatusVM\\OrderStatusCreateVM.cs",
+              "RelativeToolTip": "Data Layer\\ResourceModel\\ViewModel\\OrderStatusVM\\OrderStatusCreateVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAgAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T17:57:03.073Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IOrderStatusRepository.cs",
+              "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Repositories\\Interfaces\\IOrderStatusRepository.cs",
+              "RelativeDocumentMoniker": "Business Layer\\Repositories\\Interfaces\\IOrderStatusRepository.cs",
+              "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Repositories\\Interfaces\\IOrderStatusRepository.cs",
+              "RelativeToolTip": "Business Layer\\Repositories\\Interfaces\\IOrderStatusRepository.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAawA0AAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T18:03:10.798Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ApplicationMapper.cs",
+              "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\AutoMapper\\ApplicationMapper.cs",
+              "RelativeDocumentMoniker": "Business Layer\\AutoMapper\\ApplicationMapper.cs",
+              "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\AutoMapper\\ApplicationMapper.cs",
+              "RelativeToolTip": "Business Layer\\AutoMapper\\ApplicationMapper.cs",
+              "ViewState": "AQIAACAAAAAAMzMzM7MqwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T03:34:40.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Startup.cs",
               "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\FlashFoodDelivery\\Startup.cs",
               "RelativeDocumentMoniker": "FlashFoodDelivery\\Startup.cs",
               "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\FlashFoodDelivery\\Startup.cs",
               "RelativeToolTip": "FlashFoodDelivery\\Startup.cs",
-              "ViewState": "AQIAAEAAAAAAcLOs4nDlv00AAABDAAAA",
+              "ViewState": "AQIAAD4AAACAj5mZmZktwEUAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-27T09:43:16.287Z",
+              "WhenOpened": "2024-06-28T03:32:30.071Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "OrderStatusRepository.cs",
+              "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Repositories\\OrderStatusRepository.cs",
+              "RelativeDocumentMoniker": "Business Layer\\Repositories\\OrderStatusRepository.cs",
+              "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Repositories\\OrderStatusRepository.cs",
+              "RelativeToolTip": "Business Layer\\Repositories\\OrderStatusRepository.cs",
+              "ViewState": "AQIAAGIAAAAAAAAAAAAAAGoAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T18:02:23.755Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ShipperService.cs",
+              "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Services\\ShipperService.cs",
+              "RelativeDocumentMoniker": "Business Layer\\Services\\ShipperService.cs",
+              "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Services\\ShipperService.cs",
+              "RelativeToolTip": "Business Layer\\Services\\ShipperService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T18:08:00.043Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CategoryRepository.cs",
+              "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Repositories\\CategoryRepository.cs",
+              "RelativeDocumentMoniker": "Business Layer\\Repositories\\CategoryRepository.cs",
+              "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Repositories\\CategoryRepository.cs",
+              "RelativeToolTip": "Business Layer\\Repositories\\CategoryRepository.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T18:25:04.996Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IShipperRepository.cs",
+              "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Repositories\\Interfaces\\IShipperRepository.cs",
+              "RelativeDocumentMoniker": "Business Layer\\Repositories\\Interfaces\\IShipperRepository.cs",
+              "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Repositories\\Interfaces\\IShipperRepository.cs",
+              "RelativeToolTip": "Business Layer\\Repositories\\Interfaces\\IShipperRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T18:07:32.51Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "OrderDetailRepository.cs",
+              "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Repositories\\OrderDetailRepository.cs",
+              "RelativeDocumentMoniker": "Business Layer\\Repositories\\OrderDetailRepository.cs",
+              "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Repositories\\OrderDetailRepository.cs",
+              "RelativeToolTip": "Business Layer\\Repositories\\OrderDetailRepository.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T18:02:10.186Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Repositories\\Interfaces\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "Business Layer\\Repositories\\Interfaces\\IUserRepository.cs",
+              "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Repositories\\Interfaces\\IUserRepository.cs",
+              "RelativeToolTip": "Business Layer\\Repositories\\Interfaces\\IUserRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T18:07:26.44Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "OrderDetailService.cs",
+              "DocumentMoniker": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Services\\OrderDetailService.cs",
+              "RelativeDocumentMoniker": "Business Layer\\Services\\OrderDetailService.cs",
+              "ToolTip": "E:\\school\\visual studio\\SWP391_NET1814_Group03_FastFoodDelivery\\FlashFoodDelivery\\Business Layer\\Services\\OrderDetailService.cs",
+              "RelativeToolTip": "Business Layer\\Services\\OrderDetailService.cs",
+              "ViewState": "AQIAABIAAABAaWZmZmYdwB8AAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T17:38:50.324Z"
             }
           ]
         },

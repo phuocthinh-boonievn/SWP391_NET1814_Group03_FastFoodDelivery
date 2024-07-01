@@ -1,6 +1,10 @@
 ﻿using Business_Layer.Repositories.Interfaces;
+using Business_Layer.Services;
+using Business_Layer.Services.Interfaces;
 using Data_Layer.Models;
 using Data_Layer.ResourceModel.Common;
+using Data_Layer.ResourceModel.ViewModel.Shipper;
+using Data_Layer.ResourceModel.ViewModel.User;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -11,11 +15,11 @@ namespace API.Controllers
 	[ApiController]
 	public class ShipperController : ControllerBase
 	{
-		private readonly IShipperRepository _shipperRepository;
+		private readonly IShipperService _shipperservice;
 
-		public ShipperController(IShipperRepository shipperRepository)
+		public ShipperController(IShipperService shipperservice)
 		{
-			_shipperRepository = shipperRepository;
+			_shipperservice = shipperservice;
 		}
 
 		// GET: api/<ShipperController>
@@ -25,22 +29,16 @@ namespace API.Controllers
 		{
 			try
 			{
-				var result = await _shipperRepository.GetAllShipper();
-				return new APIResponseModel()
-				{
-					code = 200,
-					message = "Get successful",
-					IsSuccess = true,
-					Data = result,
-				};
+				var result = await _shipperservice.GetShipperAsync();
+				return result;
 			}
 			catch (Exception ex)
 			{
 				throw;
 			}
 		}
-		[HttpPost("change to shipper")]
-		public async Task<APIResponseModel> ChangeToShipper(string userId)
+		[HttpPost("createShipper")]
+		public async Task<APIResponseModel> CreateShipper ([FromBody] ShipperCreateVM model)
 		{
 			try
 			{
@@ -57,7 +55,7 @@ namespace API.Controllers
 					};
 				}
 
-				var result = await _shipperRepository.ChangeToShipper(userId);
+				var result = await _shipperservice.CreateShipperAccount(model);
 				return result;
 
 			}
@@ -72,5 +70,27 @@ namespace API.Controllers
 				};
 			}
 		}
+		[HttpGet("GetShipperById")]
+		//[Authorize(Roles = UserRole.Admin)]
+		public async Task<APIResponseModel> GetShipperById(string id)
+		{
+
+			var result = await _shipperservice.GetShipperById(id);
+			if (result != null)
+			{
+				return new APIResponseModel
+				{
+					code = 200,
+					IsSuccess = true,
+					Data = result,
+				};
+			}
+			return new APIResponseModel
+			{
+				code = 404,
+				IsSuccess = false ,
+				message = "user doesn't exist."
+			};
+		}
+		}
 	}
-}

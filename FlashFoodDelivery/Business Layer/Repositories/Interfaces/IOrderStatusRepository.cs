@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 
 namespace Business_Layer.Repositories.Interfaces
 {
-    public interface IOrderStatusRepository : IGenericRepository<OrderStatusCreateVM>
+    public interface IOrderStatusRepository : IGenericRepository<OrderStatus>
 	{
-		Task<IEnumerable<Category>> GetOrderStatusByShipperId(string shipperId);
-        Task<APIResponseModel> ChangeOrderStatus(string orderStatusId);
+		Task<IEnumerable<OrderStatusCreateVM>> GetallOrderStatus();
+		Task<IEnumerable<OrderStatusCreateVM>> GetOrderStatusByShipperId(string shipperId);
+        Task<APIResponseModel> ChangeOrderStatus(Guid orderStatusId);
     }
 }

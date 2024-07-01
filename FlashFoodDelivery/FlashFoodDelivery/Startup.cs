@@ -63,8 +63,10 @@ namespace API
 			services.AddTransient<IUserSerivce, UserService>();
 			services.AddTransient<IClaimsService, ClaimsService>();
 
+			//shipper
 			services.AddTransient<IShipperRepository, ShipperRepository>();
 			services.AddTransient<IShipperService, ShipperService>();
+			
 			//Order
 			services.AddScoped<IOrderService, OrderService>();
 			services.AddScoped<IOrderRepository, OrderRepository>();

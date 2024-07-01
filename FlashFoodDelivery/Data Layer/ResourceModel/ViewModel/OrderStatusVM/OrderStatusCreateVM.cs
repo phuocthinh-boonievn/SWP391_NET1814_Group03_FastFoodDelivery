@@ -10,6 +10,6 @@ namespace Data_Layer.ResourceModel.ViewModel.OrderStatusVM
 	{
 		string ShipperId { get; set; }
 		Guid OrderId { get; set; }
-		string OrderStatusName = "Processing";
+		string OrderStatusName {get; set; }
 	}
 }

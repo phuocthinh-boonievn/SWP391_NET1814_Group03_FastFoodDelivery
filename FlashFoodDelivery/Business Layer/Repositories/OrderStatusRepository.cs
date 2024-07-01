@@ -5,6 +5,7 @@ using Data_Layer.Models;
 using Data_Layer.ResourceModel.Common;
 using Data_Layer.ResourceModel.ViewModel.OrderStatusVM;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Business_Layer.Repositories
 {
-    public class OrderStatusRepository : GenericRepository<OrderStatusCreateVM>, IOrderStatusRepository
+    public class OrderStatusRepository : GenericRepository<OrderStatus>, IOrderStatusRepository
 	{
 		private readonly FastFoodDeliveryDBContext _context;
 		private readonly IMapper _mapper;
@@ -51,44 +52,28 @@ namespace Business_Layer.Repositories
 		//	}
 		//}
 
-		public async Task<APIResponseModel> GetOrderStatusByShipperId(string userId)
+		public async Task<IEnumerable<OrderStatusCreateVM>> GetOrderStatusByShipperId(string userId)
 		{
 			var shippers = await _userManager.GetUsersInRoleAsync("Shipper");
 			var user = await _userManager.FindByIdAsync(userId);
 			if (!shippers.Contains(user))
 			{
-				return new APIResponseModel()
-				{
-					code = 200,
-					message = "This user is not shipper",
-					IsSuccess = false,
-				};
+				return null;
 			}
 			var orderStatuses = _context.OrderStatuses.Where(o => o.ShipperId.Equals(userId)).ToList();
-			if (orderStatuses == null) return new APIResponseModel()
-			{
-				code = 200,
-				message = "Shipper doesn't have any order",
-				IsSuccess = false,
-			};
-			var result = _mapper.Map<List<OrderStatus>>(orderStatuses);
-			return new APIResponseModel()
-			{
-				code = 200,
-				message = "Get successful",
-				IsSuccess = true,
-				Data = result
-			};
+			
+			var result = _mapper.Map<List<OrderStatusCreateVM>>(orderStatuses);
+			return result;
 		}
 
-		public async Task<APIResponseModel> ChangeOrderStatus(string orderStatusId)
+		public async Task<APIResponseModel> ChangeOrderStatus(Guid orderStatusId)
 		{
 			var orderStatus = _context.OrderStatuses.FirstOrDefault(x => x.OrderStatusId.Equals(orderStatusId));
 			try
 			{
 				switch (orderStatus.OrderStatusName)
 				{
-					case "Not delivery":
+					case "Processing":
 						orderStatus.OrderStatusName = "Delivering";
 						break;
 
@@ -113,6 +98,13 @@ namespace Business_Layer.Repositories
 					IsSuccess = false,
 				};
 			}
+		}
+
+		public async Task<IEnumerable<OrderStatusCreateVM>> GetallOrderStatus()
+		{
+			var list = _context.OrderStatuses.ToList();
+			var result = _mapper.Map<IEnumerable<OrderStatusCreateVM>>(list);
+			return result;
 		}
 	}
 }
