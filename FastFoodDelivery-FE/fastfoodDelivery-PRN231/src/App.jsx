@@ -8,7 +8,7 @@ import Login from "./pages/login";
 import PaymentSuccess from "./pages/payment/paymentSuccess";
 import Register from "./pages/register";
 import ShoppingCart from "./pages/shoppingcart/ShoppingCart";
-
+import UserFeedback from "././pages/feedback/UserFeedback";
 function App() {
   const router = createBrowserRouter([
     {
@@ -30,6 +30,10 @@ function App() {
         {
           path: "/accountuser-management",
           element: <AdminAccountManagement />,
+        },
+        {
+          path: "/view-feedback",
+          element: <UserFeedback />,
         },
         {
           path: "/login",
