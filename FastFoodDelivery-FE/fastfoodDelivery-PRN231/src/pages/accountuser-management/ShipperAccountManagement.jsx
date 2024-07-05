@@ -1,35 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Table, Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import useAdminAccountManagement from "../../utils/useAdminAccountManagement";
+import useShipperAccountManagement from "../../utils/useShipperAccountManagement";
 
-function AdminAccountManagement() {
-  const { accounts, handleDisable, setSelectedAccount } = useAdminAccountManagement();
-  const [roleFilter, setRoleFilter] = useState("");
+function ShipperAccountManagement() {
+  const { accounts, handleDisable, fetchAccounts } = useShipperAccountManagement();
+  const [roleFilter, setRoleFilter] = useState("Shipper");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    fetchAccounts();
+  }, [fetchAccounts]);
 
   const filteredAccounts = roleFilter
     ? accounts.filter((account) => account.role === roleFilter)
     : accounts;
 
+  const handleAdd = () => {
+    navigate('/add-shipper'); // Assuming '/add-shipper' is the route for adding a new shipper
+  };
+
   return (
     <div className="container mt-3">
-      <h2>Account Management</h2>
-      <Form.Group controlId="roleFilter">
-        <Form.Label>Filter by Role</Form.Label>
-        <Form.Control
-          as="select"
-          value={roleFilter}
-          onChange={(e) => setRoleFilter(e.target.value)}
-        >
-          <option value="">All Roles</option>
-          <option value="Admin">Admin</option>
-          <option value="User">User</option>
-          <option value="Shipper">Shipper</option>
-        </Form.Control>
-      </Form.Group>
-      <Button className="mt-2 mb-2" onClick={() => navigate("/shipper-account-management")}>Manage Shipper Account</Button>
-      <Button className="mt-2 mb-2" onClick={() => navigate("/view-feedback")}>View Feedback</Button>
+      <h2>Shipper Account Management</h2>
+      <Button className="mt-2 mb-2" onClick={handleAdd}>Add New Shipper</Button>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -73,4 +67,4 @@ function AdminAccountManagement() {
   );
 }
 
-export default AdminAccountManagement;
+export default ShipperAccountManagement;

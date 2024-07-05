@@ -9,6 +9,9 @@ import PaymentSuccess from "./pages/payment/paymentSuccess";
 import Register from "./pages/register";
 import ShoppingCart from "./pages/shoppingcart/ShoppingCart";
 import UserFeedback from "././pages/feedback/UserFeedback";
+import ShipperAccountManagement from "./pages/accountuser-management/ShipperAccountManagement";
+import AddShipper from "./pages/accountuser-management/AddShipper";
+
 function App() {
   const router = createBrowserRouter([
     {
@@ -34,6 +37,14 @@ function App() {
         {
           path: "/view-feedback",
           element: <UserFeedback />,
+        },
+        {
+          path: "/shipper-account-management",
+          element: <ShipperAccountManagement />,
+        },
+        {
+          path: "/add-shipper",
+          element: <AddShipper />,
         },
         {
           path: "/login",
