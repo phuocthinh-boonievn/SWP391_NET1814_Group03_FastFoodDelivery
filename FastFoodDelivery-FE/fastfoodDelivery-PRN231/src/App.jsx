@@ -11,7 +11,8 @@ import ShoppingCart from "./pages/shoppingcart/ShoppingCart";
 import UserFeedback from "././pages/feedback/UserFeedback";
 import ShipperAccountManagement from "./pages/accountuser-management/ShipperAccountManagement";
 import AddShipper from "./pages/accountuser-management/AddShipper";
-
+import ViewOrderHistory from "./pages/accountuser-management/ViewOrderHistory";
+import ViewShipperOrders from "./pages/accountuser-management/ViewShipperOrders";
 function App() {
   const router = createBrowserRouter([
     {
@@ -29,6 +30,14 @@ function App() {
         {
           path: "/category-management",
           element: <Category />,
+        },
+        {
+          path: "/view-order-history",
+          element: <ViewOrderHistory />,
+        },
+        {
+          path: "/view-shipper-orders",
+          element: <ViewShipperOrders />,
         },
         {
           path: "/accountuser-management",

@@ -73,6 +73,12 @@ function Header() {
           <li>
             <Link to="/accountuser-management">AccountManagement</Link>
           </li>
+          <li>
+            <Link to="/view-order-history">ViewOrderHistory</Link>
+          </li>
+          <li>
+            <Link to="/view-shipper-orders">ViewShipperOrders</Link>
+          </li>
 
           <li onClick={() => setIsShowSearch(true)}>
             <SearchOutlined />
