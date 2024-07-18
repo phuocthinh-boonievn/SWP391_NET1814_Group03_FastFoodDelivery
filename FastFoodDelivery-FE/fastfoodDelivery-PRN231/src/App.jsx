@@ -8,11 +8,11 @@ import Login from "./pages/login";
 import PaymentSuccess from "./pages/payment/paymentSuccess";
 import Register from "./pages/register";
 import ShoppingCart from "./pages/shoppingcart/ShoppingCart";
-import UserFeedback from "././pages/feedback/UserFeedback";
 import ShipperAccountManagement from "./pages/accountuser-management/ShipperAccountManagement";
 import AddShipper from "./pages/accountuser-management/AddShipper";
 import ViewOrderHistory from "./pages/accountuser-management/ViewOrderHistory";
 import ViewShipperOrders from "./pages/accountuser-management/ViewShipperOrders";
+import ViewAllFeedback from "./pages/accountuser-management/ViewAllFeedback";
 function App() {
   const router = createBrowserRouter([
     {
@@ -36,6 +36,10 @@ function App() {
           element: <ViewOrderHistory />,
         },
         {
+          path: "/view-all-feedback", 
+          element: <ViewAllFeedback />,
+        },
+        {
           path: "/view-shipper-orders",
           element: <ViewShipperOrders />,
         },
@@ -43,10 +47,7 @@ function App() {
           path: "/accountuser-management",
           element: <AdminAccountManagement />,
         },
-        {
-          path: "/view-feedback",
-          element: <UserFeedback />,
-        },
+        
         {
           path: "/shipper-account-management",
           element: <ShipperAccountManagement />,

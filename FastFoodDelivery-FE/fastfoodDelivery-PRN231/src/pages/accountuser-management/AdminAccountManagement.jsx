@@ -25,11 +25,10 @@ function AdminAccountManagement() {
           <option value="">All Roles</option>
           <option value="Admin">Admin</option>
           <option value="User">User</option>
-          <option value="Shipper">Shipper</option>
+          
         </Form.Control>
       </Form.Group>
       <Button className="mt-2 mb-2" onClick={() => navigate("/shipper-account-management")}>Manage Shipper Account</Button>
-      <Button className="mt-2 mb-2" onClick={() => navigate("/view-feedback")}>View Feedback</Button>
       <Table striped bordered hover>
         <thead>
           <tr>

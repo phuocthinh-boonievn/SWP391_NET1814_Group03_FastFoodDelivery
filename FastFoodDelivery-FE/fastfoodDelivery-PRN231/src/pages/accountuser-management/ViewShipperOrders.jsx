@@ -83,11 +83,11 @@ const ViewShipperOrders = () => {
               <td>{order.deliveryStatus ?? 'NULL'}</td>
               <td>
                 <Button className="btn btn-success me-2" onClick={() => confirmAction(order.orderId, 'confirm')}
-                        disabled={order.deliveryStatus && order.deliveryStatus !== 'NULL'}>
+                        disabled={order.deliveryStatus && order.deliveryStatus !== 'Processing'}>
                   Confirm
                 </Button>
                 <Button className="btn btn-danger" onClick={() => confirmAction(order.orderId, 'cancel')}
-                        disabled={order.deliveryStatus && order.deliveryStatus !== 'NULL'}>
+                        disabled={order.deliveryStatus && order.deliveryStatus !== 'Processing'}>
                   Cancel
                 </Button>
               </td>
